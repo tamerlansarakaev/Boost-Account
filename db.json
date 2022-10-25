@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "name": "Shadowland Powerleveling",
+      "id": 1,
+      "price": 25,
+      "currency": "EUR",
+      "publicationDate": "12 hours",
+      "status": "Out of stock",
+      "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
+      "typeProduct": "TBC Classic",
+      "region": "EU",
+      "options": [
+        "Any KEY level",
+        "Best Gear",
+        "Fast Boost"
+      ]
+    },
+    {
+      "name": "Shadowland Powerleveling",
+      "id": 2,
+      "price": 25,
+      "currency": "EUR",
+      "publicationDate": "12 hours",
+      "status": "HOT",
+      "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
+      "typeProduct": "TBC Classic",
+      "region": "EU",
+      "options": [
+        "Any KEY level",
+        "Best Gear",
+        "Fast Boost"
+      ]
+    },
+    {
+      "name": "Shadowland Powerleveling",
+      "id": 3,
+      "price": 10000,
+      "currency": "EUR",
+      "sale": 55,
+      "publicationDate": "12 hours",
+      "status": "SALE",
+      "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
+      "typeProduct": "TBC Classic",
+      "region": "RU",
+      "options": [
+        "Any KEY level",
+        "Best Gear",
+        "Fast Boost"
+      ]
+    },
+    {
+      "name": "Shadowland Powerleveling",
+      "id": 4,
+      "price": 25,
+      "currency": "EUR",
+      "publicationDate": "12 hours",
+      "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
+      "typeProduct": "Shadowlands",
+      "region": "US",
+      "options": [
+        "Any KEY level",
+        "Best Gear",
+        "Fast Boost"
+      ]
+    }
+  ],
+  "categories": [
+    "TBC Classic",
+    "Shadowlands",
+    "Torghast",
+    "Castle Nathria",
+    "Farming",
+    "Gearing",
+    "Raids",
+    "Mounts",
+    "PvP"
+  ],
+  "links": [
+    {
+      "name": "Blog",
+      "src": "https://google.com"
+    },
+    {
+      "name": "FAQ",
+      "src": "https://google.com"
+    },
+    {
+      "name": "Reviews",
+      "src": "https://google.com"
+    },
+    {
+      "name": "Contact us",
+      "src": "https://google.com"
+    }
+  ],
+  "regions": [
+    "US",
+    "EU",
+    "RU"
+  ],
+  "menu": {
+    "backgroundImage": "https://sun9-81.userapi.com/impg/rUqG3z9ITfmGj8BfAi0CncxtGxP-VF4yStBpHQ/pYoeQ5qjYHI.jpg?size=1280x720&quality=96&sign=1c47877299921e0fe1a8cc688a6daae5&type=album"
+  },
+  "reviews": [
+    {
+      "name": "ZerefGames",
+      "titleReview": "Need new update",
+      "description": "I am buy you service need update account",
+      "rate": 4,
+      "publictaionDate": "24.10.2022",
+      "id": 1
+    },
+    {
+      "name": "вфыв",
+      "titleReview": "выфвфы",
+      "description": "вфыв",
+      "rate": 3,
+      "publictaionDate": "24.10.2022",
+      "id": 2
+    },
+    {
+      "name": "dasd",
+      "titleReview": "sdadsa",
+      "description": "dasd",
+      "rate": 4,
+      "publictaionDate": "24.10.2022",
+      "id": 3
+    },
+    {
+      "name": "Zeref",
+      "titleReview": "Gds",
+      "description": "dasd",
+      "rate": 4,
+      "publictaionDate": "25.10.2022",
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+.options {
+  display: flex;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  text-align: start;
+  justify-content: center;
+
+  .options-title {
+    list-style: none;
+    padding-left: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    font-size: 14px;
+    line-height: 135.7%;
+    color: #52c5a9;
+  }
+
+  .options-title:not(:last-child) {
+    padding-bottom: 6px;
+  }
+
+  .options-title::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '●';
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,131 @@
+/*Adaptive 1100px*/
+@media screen and (max-width: 1100px) {
+  .App {
+    .App-Container {
+      padding: 0 110px;
+
+      .product {
+        flex-basis: calc(100% / 2 - 30px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    .App-Container {
+      padding: 15px 15px 0 15px;
+
+      .header-links {
+        display: none;
+      }
+
+      .review-item {
+        flex: 1 1 calc(100% / 2 - 30px);
+      }
+
+      .Header__Search {
+        .Search {
+          display: none;
+        }
+      }
+
+      .product {
+        flex-basis: calc(100% / 2 - 30px);
+      }
+    }
+
+    .Header-Line {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .App {
+    .App-Container {
+      padding: 15px 15px 27px;
+
+      .header-links {
+        display: none;
+      }
+
+      .Header__Search {
+        .Search {
+          display: none;
+        }
+      }
+
+      .category-section {
+        align-items: center;
+        flex-direction: column;
+        max-width: none;
+      }
+
+      .main {
+        .product {
+          flex: 1 1 calc(100% / 1 - 30px);
+          max-width: none;
+          margin: 15px 0 0px;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .review-item {
+        flex-basis: calc(100% / 1 - 30px);
+        max-width: none;
+        margin-right: 0;
+        display: block;
+      }
+
+      .reviews-items {
+        margin-bottom: 30px;
+      }
+    }
+    .Header-Line {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    .App-Container {
+      padding: 28px 28px 0px;
+      .previuos-container {
+        h1 {
+          font-size: 38px;
+          max-width: 465px;
+        }
+      }
+    }
+    .Header-Line {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .App {
+    .product-container {
+      padding: 11px 7px 27px 19px;
+
+      .product-main {
+        padding-right: 13px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .App {
+    .reviews-footer-container {
+      flex-direction: column;
+
+      .reviews-show-all {
+        margin-bottom: 12px;
+        margin-right: 0;
+      }
+    }
+  }
+}

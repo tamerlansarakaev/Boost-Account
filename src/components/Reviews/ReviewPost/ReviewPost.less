@@ -1,0 +1,74 @@
+.reviews-footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  &-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .reviews-show-all {
+    display: flex;
+    position: relative;
+    max-width: 275px;
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    border: none;
+    background: rgba(81, 179, 127, 0.06);
+    border-radius: 10px;
+    color: #fff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    user-select: none;
+    padding: 15px 17px;
+    transition: 0.5s;
+  }
+
+  .reviews-show-all:hover {
+    background: rgba(81, 179, 127, 0.27);
+    transition: 0.5s;
+  }
+
+  .reviews-show-all:focus {
+    background: rgba(81, 179, 127, 0.27);
+    box-shadow: inset 0px 4px 14px rgba(0, 0, 0, 0.57);
+    transition: 0.5s;
+  }
+
+  .create-reviews {
+    max-width: 143px;
+  }
+
+  .reviews-create {
+    background: linear-gradient(180deg, #51b37f 0%, #298152 100%);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    padding: 15px 26px;
+    font-size: 14px;
+    transition: 0.5s;
+  }
+
+  .reviews-create:hover {
+    background: linear-gradient(180deg, #2fde81 0%, #298152 100%);
+    transition: 0.5s;
+    box-shadow: none;
+  }
+
+  .reviews-create:focus {
+    background: linear-gradient(180deg, #2fde81 0%, #298152 100%);
+    transition: 0.5s;
+  }
+
+  &-icon {
+    margin-left: 11px;
+  }
+}

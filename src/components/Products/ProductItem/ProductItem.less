@@ -1,0 +1,224 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+p {
+  margin: 0;
+}
+
+.product {
+  border-radius: 15px;
+  flex: 1 1 calc(100% / 3 - 30px);
+  margin: 0 15px 30px;
+  max-width: 350px;
+  width: 100%;
+  z-index: 1;
+  transition: 0.5s;
+
+  &-container {
+    padding: 11px 7px 27px 33px;
+    height: 100%;
+  }
+
+  &-background {
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .product-background-image-container {
+      .product-background-image {
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        top: 0;
+        z-index: -1;
+        position: absolute;
+      }
+    }
+    .product-background-image-container::after {
+      position: absolute;
+      top: 1px;
+      z-index: -1;
+      width: 100%;
+      background: linear-gradient(
+        17.36deg,
+        #070606 36.96%,
+        rgba(19, 18, 18, 0) 84.63%
+      );
+      content: '';
+      height: 100%;
+    }
+
+    .product-background-image-container::after:hover {
+      background: linear-gradient(
+        17.36deg,
+        #280a0a 36.96%,
+        rgba(66, 20, 20, 0) 84.63%
+      );
+    }
+  }
+  &-header {
+    margin-bottom: 211px;
+    width: 100%;
+    color: #fff;
+    z-index: 3;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: space-between;
+
+    &-list {
+      display: flex;
+    }
+    &-list:not(:last-child) {
+      margin-bottom: 3px;
+    }
+  }
+
+  .productStatus {
+    display: flex;
+    position: relative;
+    max-width: 143px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 8px 13px 6px 34px;
+
+    .product-status-title {
+      font-family: 'Inter';
+      font-weight: 700;
+      font-size: 16px;
+      color: #ffffff;
+    }
+
+    .product-status-image {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+    }
+  }
+
+  .product-header-elements {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .product-header-date-publication {
+      display: flex;
+      margin: 0;
+      font-family: Inter;
+      align-items: center;
+      width: 100%;
+      font-weight: 500;
+
+      p {
+        margin-left: 10px;
+      }
+
+      .date-icon {
+        max-width: 20px;
+      }
+    }
+  }
+
+  .product-header-date-category {
+    width: 100%;
+    text-align: center;
+    max-width: 144px;
+    box-sizing: border-box;
+
+    .product-category {
+      padding: 7px 32px;
+      font-size: 14px;
+      border-radius: 10px;
+    }
+  }
+
+  &-main-item {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    &-title {
+      max-width: 238px;
+      font-weight: 600;
+      font-size: 22px;
+      color: #ffffff;
+      font-family: 'Inter';
+      margin: 0;
+      margin-bottom: 7px;
+    }
+  }
+
+  &-price {
+    display: flex;
+    flex-direction: column;
+    &-header {
+      color: #6c6c6c;
+      letter-spacing: -0.025em;
+      margin-bottom: -4px;
+      font-family: 'Inter';
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    &-title {
+      font-family: 'Inter';
+      font-weight: 600;
+      width: 100%;
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+  }
+
+  .product-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .button {
+    background: #f1433a;
+    box-shadow: 0px 4px 39px rgba(231, 87, 87, 0.25);
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 29px;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: -0.025em;
+    border-radius: 15px;
+  }
+
+  .button:hover {
+    background: #fc4339;
+    border-radius: 15px;
+    box-shadow: 0px 4px 39px rgba(231, 87, 87, 0.25);
+    transition: 0.5s;
+  }
+
+  .button:focus {
+    background: #f1433a;
+    box-shadow: 0px 4px 39px rgba(231, 87, 87, 0.25),
+      inset 0px 4px 26px rgba(79, 8, 8, 0.61);
+    transition: 0.5s;
+  }
+
+  .product-main {
+    display: flex;
+    flex-direction: column;
+    padding-right: 23px;
+  }
+
+  .standartBG {
+    background: #5b5b5b;
+  }
+}

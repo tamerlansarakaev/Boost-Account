@@ -1,0 +1,35 @@
+.MenuItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  .title-menu-category {
+    color: #797979;
+    font-family: 'Inter';
+    font-weight: 500;
+  }
+  cursor: pointer;
+  p {
+    margin: 0;
+    margin-left: 14px;
+  }
+}
+
+.activeMenuCategory {
+  .title-menu-category {
+    background: linear-gradient(90deg, #e5453d -14.78%, #ff7a2e 451.57%);
+    -webkit-text-fill-color: transparent;
+    
+    font-weight: 500;
+    background-clip: text;
+  }
+  .Svg-Menu-Item {
+    svg path {
+      fill: linear-gradient(
+        90deg,
+        rgba(229, 69, 61, 0.8) -14.78%,
+        rgba(255, 122, 46, 0.8) 451.57%
+      );
+      fill-opacity: 100%;
+    }
+  }
+}

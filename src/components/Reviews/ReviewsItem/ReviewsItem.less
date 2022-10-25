@@ -1,0 +1,78 @@
+.review-item {
+  display: flex;
+  max-width: 350px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 21px 16px;
+  color: #fff;
+  background: #201e1e;
+  flex: 1 1 calc(100% / 3 - 30px);
+  margin: 0 15px 30px 0px;
+  border-radius: 15px;
+  transition: 0.5s;
+  cursor: pointer;
+
+  &-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .review-footer {
+    display: flex;
+    margin-top: auto;
+  }
+
+  &-main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .review-decription {
+    max-width: 280px;
+    word-wrap: break-word;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 9px;
+  }
+
+  .review-date-publication {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
+    color: #555555;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .rate-icon div {
+    display: flex;
+  }
+
+  .review-title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .review-author {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 12px;
+    color: #555555;
+  }
+}
+
+.review-item:hover {
+  background-color: #262927;
+  transition: 0.5s;
+}

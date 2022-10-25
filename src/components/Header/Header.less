@@ -1,0 +1,54 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+/*Content*/
+.Header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  z-index: 1;
+  flex-direction: column;
+
+  &-Elements {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+
+    .logo {
+      max-width: 54px;
+      max-height: 39px;
+    }
+  }
+
+  .Header__Search {
+    display: flex;
+    box-sizing: border-box;
+    max-height: 71px;
+    align-items: center;
+
+    .logo {
+      max-width: 54px;
+      max-height: 39px;
+    }
+
+    .Search {
+      position: relative;
+
+      input {
+        font-family: 'Inter';
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 127.2%;
+        color: #fff;
+        letter-spacing: -0.025em;
+      }
+
+      img {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+    }
+  }
+}
