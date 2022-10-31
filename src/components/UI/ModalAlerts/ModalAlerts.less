@@ -1,0 +1,34 @@
+.modal-alerts {
+  display: flex;
+  z-index: 10;
+  position: fixed;
+  top: 88px;
+  right: -30px;
+  transform: translateX(235px);
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 30px 47px;
+  background: linear-gradient(180deg, #110d0d 0%, #131212 100%);
+  border-radius: 12px;
+  transition: 0.5s;
+
+  &-title {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+  }
+}
+
+.modal-alerts .disable {
+  transform: translateX(-30px);
+}
+
+.activeModalAlerts {
+  display: flex;
+  transform: translateX(-25px);
+  transition: .5s;
+}

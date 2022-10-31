@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 import ReviewPost from '../ReviewPost/ReviewPost';
 
 function ReviewsList() {
-  const reviews = useSelector((state) => state.reviews);
+  const reviews = useSelector((state) => state.server.reviews);
 
   return (
     <div className="reviews">

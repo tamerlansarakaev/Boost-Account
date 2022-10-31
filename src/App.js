@@ -5,7 +5,16 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import { DATA_LOADED } from './reducers/types';
+import {
+  DATA_LOADED,
+  SET_CATEGORIES,
+  SET_LINKS,
+  SET_MENU,
+  SET_MODAL_STATUS,
+  SET_PRODUCTS,
+  SET_REGIONS,
+  SET_REVIEWS,
+} from './reducers/types';
 import Modal from './components/UI/Modal/Modal';
 import ReviewModal from './components/Reviews/ReviewModal/ReviewModal';
 
@@ -23,31 +32,34 @@ import {
   getRegions,
   getReviews,
 } from './services/API';
+import ModalList from './components/UI/ModalList/ModalList';
+import ModalAlertsList from './components/UI/ModalAlertsList/ModalAlertsList';
 
 function App() {
   const dispatch = useDispatch();
-  const statusModal = useSelector((state) => state.modalStatus);
-  const statusUpdate = useSelector((state) => state.status);
-  const state = useSelector((state) => state);
+  const statusModal = useSelector((state) => state.site.modalStatus);
+  const statusUpdate = useSelector((state) => state.site.status);
+  const state = useSelector((state) => state.server);
 
   async function setAllData() {
-    dispatch({
-      type: DATA_LOADED,
-      products: await getProducts(),
-      region: await getRegions(),
-      links: await getLinks(),
-      categories: await getCategories(),
-      menu: await getMenu(),
-      reviews: await getReviews(),
-      modalStatus: false,
-    });
+    dispatch({ type: SET_PRODUCTS, products: await getProducts() });
+    dispatch({ type: SET_REGIONS, region: await getRegions() });
+    dispatch({ type: SET_LINKS, links: await getLinks() });
+    dispatch({ type: SET_CATEGORIES, categories: await getCategories() });
+    dispatch({ type: SET_MENU, menu: await getMenu() });
+    dispatch({ type: SET_REVIEWS, reviews: await getReviews() });
+    dispatch({ type: SET_MODAL_STATUS, modalStatus: false });
   }
 
   React.useEffect(() => {
     setAllData();
     if (statusUpdate) {
       setAllData();
-      dispatch({ ...state, type: DATA_LOADED, status: '' });
+      dispatch({
+        ...state,
+        type: DATA_LOADED,
+        status: 'All data loaded this site!',
+      });
     }
   }, [statusUpdate]);
 
@@ -62,9 +74,10 @@ function App() {
         </div>
         {statusModal && (
           <Modal>
-            <ReviewModal />
+            <ModalList />
           </Modal>
         )}
+        <ModalAlertsList />
       </div>
     </div>
   );

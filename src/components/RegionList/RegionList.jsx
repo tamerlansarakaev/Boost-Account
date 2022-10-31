@@ -9,7 +9,7 @@ import RegionItem from '../RegionItem/RegionItem';
 import './RegionList.less';
 
 function RegionList() {
-  const regions = useSelector((state) => state.region);
+  const regions = useSelector((state) => state.server.region);
   const [active, setActive] = React.useState('');
 
   return (

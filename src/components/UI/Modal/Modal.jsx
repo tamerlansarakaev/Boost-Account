@@ -1,28 +1,31 @@
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DATA_LOADED } from '../../../reducers/types';
+import { SET_MODAL_STATUS } from '../../../reducers/types';
 
 // Styles
 import './Modal.less';
 
 function Modal({ children }) {
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.site);
   const [status, setStatus] = React.useState(true);
   const dispatch = useDispatch();
-
   function saveStatus() {
     if (state) {
       setStatus(!state.modalStatus);
-      dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+      dispatch({
+        ...state,
+        type: SET_MODAL_STATUS,
+        modalStatus: status,
+      });
     } else {
       setStatus(false);
-      dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+      dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
     }
   }
 
   React.useEffect(() => {
-    dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+    dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
 
     if (status) {
       document.body.style.overflowY = 'hidden';

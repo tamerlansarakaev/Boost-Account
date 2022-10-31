@@ -3,7 +3,11 @@ import React from 'react';
 
 // Components
 import Button from '../../UI/Button/Button';
-import { DATA_LOADED } from '../../../reducers/types';
+import {
+  DATA_LOADED,
+  GET_NEW_MODAL,
+  SET_MODAL_STATUS,
+} from '../../../reducers/types';
 
 // Styles
 import './ReviewPost.less';
@@ -11,25 +15,36 @@ import './ReviewPost.less';
 // UI
 import { ReactSVG } from 'react-svg';
 import { useDispatch, useSelector } from 'react-redux';
+import { CREATE_REVIEW_MODAL } from '../../UI/ModalList/modalTypes';
 
 function ReviewPost() {
-  const reviews = useSelector((state) => state.reviews);
-  const state = useSelector((state) => state);
+  const reviews = useSelector((state) => state.server.reviews);
+  const state = useSelector((state) => state.site);
   const [status, setStatus] = React.useState(false);
   const dispatch = useDispatch();
 
   function saveStatus() {
     if (state) {
       setStatus(!state.modalStatus);
-      dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+      dispatch({
+        ...state,
+        type: SET_MODAL_STATUS,
+        modalType: CREATE_REVIEW_MODAL,
+        modalStatus: status,
+      });
     } else {
       setStatus(false);
-      dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+      dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
     }
   }
 
   React.useEffect(() => {
-    dispatch({ ...state, type: DATA_LOADED, modalStatus: status });
+    dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
+    dispatch({
+      ...state,
+      type: GET_NEW_MODAL,
+      modalType: CREATE_REVIEW_MODAL,
+    });
   }, [status]);
 
   function getReviewsLength() {

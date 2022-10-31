@@ -1,7 +1,18 @@
-import { DATA_LOADED, UPDATE_DATA } from './types';
+import {
+  DATA_LOADED,
+  ERROR_CONFIRM,
+  SET_CATEGORIES,
+  SET_LINKS,
+  SET_MENU,
+  SET_MODAL_STATUS,
+  SET_PRODUCTS,
+  SET_REGIONS,
+  SET_REVIEWS,
+  UPDATE_DATA,
+} from './types';
 
 const initialStore = {
-  products: [],
+  statusError: false,
 };
 
 const rootReducer = (state = initialStore, action) => {
@@ -9,14 +20,7 @@ const rootReducer = (state = initialStore, action) => {
     case DATA_LOADED:
       return {
         ...state,
-        products: action.products,
-        region: action.region,
-        links: action.links,
-        categories: action.categories,
-        menu: action.menu,
         activeCategory: action.activeCategory,
-        reviews: action.reviews,
-        modalStatus: action.modalStatus,
         status: action.status,
       };
     case UPDATE_DATA:
@@ -24,6 +28,36 @@ const rootReducer = (state = initialStore, action) => {
         ...state,
         activeCategory: action.selectedCategory,
         status: action.status,
+      };
+    case SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.products,
+      };
+    case SET_REGIONS:
+      return {
+        ...state,
+        region: action.region,
+      };
+    case SET_LINKS:
+      return {
+        ...state,
+        links: action.links,
+      };
+    case SET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.categories,
+      };
+    case SET_MENU:
+      return {
+        ...state,
+        menu: action.menu,
+      };
+    case SET_REVIEWS:
+      return {
+        ...state,
+        reviews: action.reviews,
       };
     default:
       return state;
