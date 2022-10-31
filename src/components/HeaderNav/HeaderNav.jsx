@@ -9,7 +9,7 @@ import HeaderNavItem from '../HeaderNavItem/HeaderNavItem';
 import './HeaderNav.less';
 
 const HeaderNav = () => {
-  const links = useSelector((state) => state.links);
+  const links = useSelector((state) => state.server.links);
   return (
     <div className="Header__Nav">
       <div className="header-links">

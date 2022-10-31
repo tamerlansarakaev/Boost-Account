@@ -7,8 +7,9 @@ import { Provider } from 'react-redux';
 
 // Styles
 import "./Adaptive.less"
+import allReducers from './reducers/combineReducers';
 
-const store = createStore(rootReducer)
+const store = createStore(allReducers)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

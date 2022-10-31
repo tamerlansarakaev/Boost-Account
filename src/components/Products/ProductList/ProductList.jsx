@@ -12,8 +12,8 @@ import './ProductList.less';
 import IconMost from '../../../UI/icons/most.svg';
 
 function ProductList() {
-  const products = useSelector((state) => state.products) || [];
-  const state = useSelector((state) => state);
+  const products = useSelector((state) => state.server.products) || [];
+  const state = useSelector((state) => state.server);
   const sortArray = products.sort((a, b) => {
     if (a.typeProduct === state.activeCategory) {
       return -1;

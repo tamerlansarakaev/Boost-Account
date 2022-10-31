@@ -10,9 +10,9 @@ import CategoryItem from '../CategoryItem/CategoryItem';
 import './CategoriesList.less';
 
 const CategoriesList = () => {
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.server.categories);
   const [active, setActive] = React.useState('');
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.site);
   const dispatch = useDispatch();
 
   function checkCategory() {

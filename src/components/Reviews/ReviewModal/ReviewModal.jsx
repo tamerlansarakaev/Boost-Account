@@ -5,10 +5,19 @@ import { ReactSVG } from 'react-svg';
 
 // Components
 import Input from '../../UI/Input/Input';
-import { DATA_LOADED, UPDATE_DATA } from '../../../reducers/types';
+import {
+  DATA_LOADED,
+  ERROR_CONFIRM,
+  UPDATE_DATA,
+} from '../../../reducers/types';
+import { inputValidate } from './actions';
 
 // Styles
 import './ReviewModal.less';
+import './actions.less';
+import ModalAlerts from '../../UI/ModalAlerts/ModalAlerts';
+import classNames from 'classnames';
+import { RATING_NOT_SELECTED } from '../../UI/ModalAlertsList/alertsTypes';
 
 const ReviewModal = () => {
   const [nameInput, setNameInput] = React.useState('');
@@ -17,15 +26,18 @@ const ReviewModal = () => {
   const [clickButton, setClickButton] = React.useState(0);
   const [finalResult, setFinalResult] = React.useState(null);
 
+  const state = useSelector((state) => state.server);
+  const siteState = useSelector((state) => state.site);
   const rates = Array(5).fill('');
-  const reviews = useSelector((state) => state.reviews);
-  const state = useSelector((state) => state);
-
+  const reviews = useSelector((state) => state.server.reviews);
   const dispatch = useDispatch();
 
   async function postReview() {
     const date = new Date();
-    if (nameInput && reviewInput && feedbackInput && reviews && finalResult) {
+    if (
+      inputValidate(nameInput, reviewInput, feedbackInput, finalResult) &&
+      reviews
+    ) {
       await fetch('http://localhost:3000/reviews', {
         method: 'POST',
         headers: {
@@ -46,22 +58,39 @@ const ReviewModal = () => {
 
   React.useEffect(() => {
     if (clickButton) {
-      if (nameInput && reviewInput && feedbackInput && finalResult) {
+      if (inputValidate(nameInput, feedbackInput, reviewInput, finalResult)) {
         postReview();
         dispatch({
           ...state,
           type: DATA_LOADED,
-          modalStatus: !state.modalStatus,
+          modalStatus: !siteState.modalStatus,
           reviews: state.reviews,
+          statusError: false,
         });
         document.body.style.overflowY = 'scroll';
+      } else if (
+        !inputValidate(nameInput, feedbackInput, reviewInput, finalResult)
+      ) {
+        dispatch({
+          ...state,
+          type: ERROR_CONFIRM,
+          statusError: true,
+          statusAlerts: RATING_NOT_SELECTED,
+        });
+        setTimeout(() => {
+          dispatch({
+            ...state,
+            type: ERROR_CONFIRM,
+            statusError: false,
+            statusAlerts: RATING_NOT_SELECTED,
+          });
+        }, 1500);
       }
       setTimeout(() => {
         setClickButton(null);
       }, 1000);
     }
   }, [clickButton]);
-
 
   return (
     <div className="modal-elements">
@@ -73,7 +102,7 @@ const ReviewModal = () => {
           <span className="modal-input-title">Your Name:</span>
           <Input
             type="text"
-            className="modal-input"
+            className={`modal-input${!nameInput.length ? ' errorInput' : ''}`}
             onChange={(value) => setNameInput(value)}
             value={nameInput}
           />
@@ -82,7 +111,7 @@ const ReviewModal = () => {
           <span className="modal-input-title">Your review topic:</span>
           <Input
             type="text"
-            className="modal-input"
+            className={`modal-input${!reviewInput.length ? ' errorInput' : ''}`}
             onChange={(value) => setReviewInput(value)}
           />
         </div>
@@ -90,7 +119,9 @@ const ReviewModal = () => {
           <span className="modal-input-title">Your feedback:</span>
           <Input
             type="text"
-            className="modal-input"
+            className={`modal-input${
+              !feedbackInput.length ? ' errorInput' : ''
+            }`}
             onChange={(value) => setFeedbackInput(value)}
           />
         </div>
@@ -112,7 +143,6 @@ const ReviewModal = () => {
                       src={require('../../../UI/icons/ratingStar.svg').default}
                       onClick={() => {
                         setFinalResult(5 - i);
-                        console.log(finalResult);
                       }}
                       key={i}
                     />
