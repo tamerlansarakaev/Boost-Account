@@ -7,10 +7,10 @@ import MenuCategoryItem from '../MenuCategoryItem/MenuCategoryItem';
 import './MenuCategoryList.less';
 
 function MenuCategoryList(props) {
-  const categories = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.server.categories);
   const [active, setActive] = React.useState('');
 
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.server);
   const dispatch = useDispatch();
 
   function checkCategory() {

@@ -15,8 +15,6 @@ import { inputValidate } from './actions';
 // Styles
 import './ReviewModal.less';
 import './actions.less';
-import ModalAlerts from '../../UI/ModalAlerts/ModalAlerts';
-import classNames from 'classnames';
 import { RATING_NOT_SELECTED } from '../../UI/ModalAlertsList/alertsTypes';
 
 const ReviewModal = () => {
@@ -68,14 +66,12 @@ const ReviewModal = () => {
           statusError: false,
         });
         document.body.style.overflowY = 'scroll';
-      } else if (
-        !inputValidate(nameInput, feedbackInput, reviewInput, finalResult)
-      ) {
+      }
+      if (!inputValidate(nameInput, feedbackInput, reviewInput, finalResult)) {
         dispatch({
           ...state,
           type: ERROR_CONFIRM,
           statusError: true,
-          statusAlerts: RATING_NOT_SELECTED,
         });
         setTimeout(() => {
           dispatch({
@@ -85,6 +81,13 @@ const ReviewModal = () => {
             statusAlerts: RATING_NOT_SELECTED,
           });
         }, 1500);
+      }
+      if (!finalResult) {
+        dispatch({
+          type: ERROR_CONFIRM,
+          statusError: true,
+          statusAlerts: RATING_NOT_SELECTED,
+        });
       }
       setTimeout(() => {
         setClickButton(null);

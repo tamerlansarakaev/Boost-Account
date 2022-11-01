@@ -21,7 +21,7 @@ function Menu() {
   const [status, setStatus] = React.useState(false);
   const [selectCategory, setSelectCategory] = React.useState(null);
 
-  const menuItems = useSelector((state) => state.menu);
+  const menuItems = useSelector((state) => state.server.menu);
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
