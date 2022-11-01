@@ -1,6 +1,9 @@
-import classNames from 'classnames';
+// Global
 import React from 'react';
 import { useSelector } from 'react-redux';
+import classNames from 'classnames';
+
+// Components
 import ModalAlerts from '../ModalAlerts/ModalAlerts';
 import { RATING_NOT_SELECTED } from './alertsTypes';
 

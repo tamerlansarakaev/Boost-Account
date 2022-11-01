@@ -38,7 +38,7 @@ import ModalAlertsList from './components/UI/ModalAlertsList/ModalAlertsList';
 function App() {
   const dispatch = useDispatch();
   const statusModal = useSelector((state) => state.site.modalStatus);
-  const statusUpdate = useSelector((state) => state.site.status);
+  const statusUpdate = useSelector((state) => state.server.status);
   const state = useSelector((state) => state.server);
 
   async function setAllData() {
@@ -54,6 +54,7 @@ function App() {
   React.useEffect(() => {
     setAllData();
     if (statusUpdate) {
+      console.log('Update!')
       setAllData();
       dispatch({
         ...state,

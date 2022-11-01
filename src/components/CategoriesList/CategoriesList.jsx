@@ -13,23 +13,23 @@ const CategoriesList = () => {
   const categories = useSelector((state) => state.server.categories);
   const [active, setActive] = React.useState('');
   const state = useSelector((state) => state.site);
+  const stateServer = useSelector((state) => state.server);
   const dispatch = useDispatch();
 
   function checkCategory() {
-    if (state) {
-      setActive(state.activeCategory);
+    if (state && stateServer) {
+      setActive(stateServer.activeCategory);
     }
   }
 
   React.useEffect(() => {
-    if (state) {
+    if (stateServer) {
       dispatch({ ...state, type: DATA_LOADED, activeCategory: active });
     }
   }, [active]);
-
   React.useEffect(() => {
     checkCategory();
-  }, [state.activeCategory]);
+  }, [stateServer.activeCategory]);
 
   return (
     <div className="category-section">
