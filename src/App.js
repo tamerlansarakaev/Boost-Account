@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,7 +17,6 @@ import {
   SET_REVIEWS,
 } from './reducers/types';
 import Modal from './components/UI/Modal/Modal';
-import ReviewModal from './components/Reviews/ReviewModal/ReviewModal';
 
 // UI
 import BackGround from './UI/background/background.png';
@@ -39,7 +39,8 @@ function App() {
   const dispatch = useDispatch();
   const statusModal = useSelector((state) => state.site.modalStatus);
   const statusUpdate = useSelector((state) => state.server.status);
-  const state = useSelector((state) => state.server);
+  const stateModal = useSelector((state) => state.modalReducer);
+  const state = useSelector((state) => state);
 
   async function setAllData() {
     dispatch({ type: SET_PRODUCTS, products: await getProducts() });
@@ -54,7 +55,7 @@ function App() {
   React.useEffect(() => {
     setAllData();
     if (statusUpdate) {
-      console.log('Update!')
+      console.log('Update!');
       setAllData();
       dispatch({
         ...state,
@@ -78,11 +79,10 @@ function App() {
             <ModalList />
           </Modal>
         )}
-        <ModalAlertsList />
+        {stateModal.statusMessage && <ModalAlertsList />}
       </div>
     </div>
   );
 }
 
 export default App;
-
