@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +9,8 @@ import Input from '../../UI/Input/Input';
 import {
   DATA_LOADED,
   ERROR_CONFIRM,
+  NOT_SELECT_RATE,
+  SUCCESSFULLY_COMPLETED,
   UPDATE_DATA,
 } from '../../../reducers/types';
 import { inputValidate } from './actions';
@@ -15,7 +18,10 @@ import { inputValidate } from './actions';
 // Styles
 import './ReviewModal.less';
 import './actions.less';
-import { RATING_NOT_SELECTED } from '../../UI/ModalAlertsList/alertsTypes';
+import {
+  RATING_NOT_SELECTED,
+  REVIEW_POSTED,
+} from '../../UI/ModalAlertsList/alertsTypes';
 
 const ReviewModal = () => {
   const [nameInput, setNameInput] = React.useState('');
@@ -63,26 +69,31 @@ const ReviewModal = () => {
           type: DATA_LOADED,
           modalStatus: !siteState.modalStatus,
           reviews: state.reviews,
-          statusError: false,
+        });
+        dispatch({
+          ...state,
+          type: SUCCESSFULLY_COMPLETED,
+          status: REVIEW_POSTED,
         });
         document.body.style.overflowY = 'scroll';
       }
       if (!inputValidate(nameInput, feedbackInput, reviewInput, finalResult)) {
         dispatch({
           ...state,
-          type: ERROR_CONFIRM,
-          statusError: true,
+          type: NOT_SELECT_RATE,
+          status: RATING_NOT_SELECTED,
+          statusMessage: true,
         });
         setTimeout(() => {
           dispatch({
             ...state,
-            type: ERROR_CONFIRM,
-            statusError: false,
-            statusAlerts: RATING_NOT_SELECTED,
+            type: NOT_SELECT_RATE,
+            status: RATING_NOT_SELECTED,
+            statusMessage: false,
           });
         }, 1500);
       }
-      if (!finalResult) {
+      if (inputValidate(nameInput, feedbackInput, reviewInput) && !finalResult) {
         dispatch({
           type: ERROR_CONFIRM,
           statusError: true,

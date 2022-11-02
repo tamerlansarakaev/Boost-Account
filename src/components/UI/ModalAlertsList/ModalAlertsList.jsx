@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 // Global
 import React from 'react';
 import { useSelector } from 'react-redux';
-import classNames from 'classnames';
 
 // Components
 import ModalAlerts from '../ModalAlerts/ModalAlerts';
 import { RATING_NOT_SELECTED } from './alertsTypes';
 
 const ModalAlertsList = () => {
-  const siteState = useSelector((state) => state.site);
-  const className = classNames({ activeModalAlerts: siteState.statusError });
+  const modalState = useSelector((state) => state.modalReducer);
+  console.log(modalState.status);
+
   function getModalAlerts(type) {
     switch (type) {
       case RATING_NOT_SELECTED:
@@ -17,7 +19,7 @@ const ModalAlertsList = () => {
           <ModalAlerts
             title="Choose Feedback"
             color="#FF4545"
-            className={className}
+            className={'activeModalAlerts'}
           />
         );
       default:
@@ -25,7 +27,9 @@ const ModalAlertsList = () => {
     }
   }
 
-  return <>{getModalAlerts(siteState.statusAlerts)}</>;
+  return (
+    <>{modalState.statusMessage ? getModalAlerts(modalState.status) : ''}</>
+  );
 };
 
 export default ModalAlertsList;
