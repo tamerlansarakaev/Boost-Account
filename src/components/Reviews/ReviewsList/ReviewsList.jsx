@@ -39,6 +39,15 @@ function ReviewsList() {
                   />
                 );
               })}
+          {reviews && !reviews.length ? (
+            <div className='empty-reviews-container'>
+              <div className="empty-reviews">
+                <p>There are no reviews. <br/>But you can leave your review!</p>
+              </div>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
         <ReviewPost />
       </div>

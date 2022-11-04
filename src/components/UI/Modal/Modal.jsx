@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,7 +38,7 @@ function Modal({ children }) {
   return (
     <div className="modal-wrapper">
       <div className="modal-background" onClick={() => saveStatus()}></div>
-      <div className="modal-box">{children}</div>
+      {children}
     </div>
   );
 }

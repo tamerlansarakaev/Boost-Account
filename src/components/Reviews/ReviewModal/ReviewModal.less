@@ -1,3 +1,35 @@
+// Animation
+@keyframes view {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 25%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  75% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.modal-box {
+  max-width: 445px;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  animation-name: view;
+  animation-duration: 0.2s;
+  justify-content: center;
+  background: #131212;
+  z-index: 6;
+  border-radius: 12px;
+}
+
 .modal-elements {
   width: 100%;
   box-sizing: border-box;
@@ -55,7 +87,7 @@
       align-items: center;
       cursor: pointer;
       transition: 0.5s;
-      padding: 0 6px;
+      margin: 0 6px;
     }
 
     div div {
@@ -87,6 +119,9 @@
     font-size: 16px;
     letter-spacing: -0.025em;
     text-transform: uppercase;
+  }
+  .modal-button:disabled {
+    opacity: 80%;
   }
 
   .modal-button-element {

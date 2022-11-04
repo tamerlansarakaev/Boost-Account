@@ -5,7 +5,7 @@
     display: flex;
     margin-bottom: 34px;
     align-items: center;
-    
+
     span {
       font-family: 'Inter';
       font-style: normal;
@@ -27,5 +27,34 @@
     display: flex;
     margin-bottom: 40px;
     flex-wrap: wrap;
+  }
+
+  .empty-reviews {
+    background: #1b1919;
+    border-radius: 12px;
+    padding: 25px 113px;
+    box-sizing: border-box;
+    transition: 0.3s;
+
+    p {
+      max-width: 363px;
+      margin: 0px;
+      font-family: 'Inter';
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 135.7%;
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+  .empty-reviews:hover {
+    background: #1f1e1e;
+    transition: 0.3s;
+  }
+
+  .empty-reviews-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 }

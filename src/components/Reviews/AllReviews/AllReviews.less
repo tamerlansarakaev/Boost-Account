@@ -1,0 +1,38 @@
+// Main
+
+.all-reviews {
+  display: flex;
+  max-width: 912px;
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px 65px;
+  border-radius: 12px;
+  background: #131212;
+  z-index: 5;
+
+  &-title {
+    font-family: 'Inter';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 127.2%;
+    text-align: center;
+    letter-spacing: -0.025em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 39px;
+  }
+
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-height: 500px;
+    white-space: nowrap;
+    overflow-y: scroll;
+    margin-bottom: 33px;
+  }
+  .review-item {
+    flex: 1 1 calc(100% / 2 - 30px);
+  }
+}
