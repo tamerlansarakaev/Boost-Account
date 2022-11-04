@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 
 // Components
 import Button from '../../UI/Button/Button';
 import {
-  DATA_LOADED,
   GET_NEW_MODAL,
   SET_MODAL_STATUS,
+  VIEW_REVIEWS,
 } from '../../../reducers/types';
 
 // Styles
@@ -15,13 +16,26 @@ import './ReviewPost.less';
 // UI
 import { ReactSVG } from 'react-svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { CREATE_REVIEW_MODAL } from '../../UI/ModalList/modalTypes';
+import {
+  ALL_REVIEWS,
+  CREATE_REVIEW_MODAL,
+} from '../../UI/ModalList/modalTypes';
 
 function ReviewPost() {
   const reviews = useSelector((state) => state.server.reviews);
   const state = useSelector((state) => state.site);
   const [status, setStatus] = React.useState(false);
   const dispatch = useDispatch();
+
+  function allReviews(reviews) {
+    if (reviews && reviews.length > 6) {
+      dispatch({
+        type: VIEW_REVIEWS,
+        modalStatus: true,
+        modalType: ALL_REVIEWS,
+      });
+    }
+  }
 
   function saveStatus() {
     if (state) {
@@ -57,7 +71,11 @@ function ReviewPost() {
   return (
     <div className="reviews-footer">
       <div className="reviews-footer-container">
-        <button className="reviews-show-all">
+        <button
+          className="reviews-show-all"
+          onClick={() => allReviews(reviews)}
+          disabled={getReviewsLength() < 6}
+        >
           <p className="reviews-all">
             See out {getReviewsLength() > 6 ? getReviewsLength() - 6 : 0}{' '}
             reviews on

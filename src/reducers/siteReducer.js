@@ -1,4 +1,4 @@
-import { ERROR_CONFIRM, SET_MODAL_STATUS } from './types';
+import { ERROR_CONFIRM, SET_MODAL_STATUS, VIEW_REVIEWS } from './types';
 
 const initialStore = {
   statusError: false,
@@ -17,6 +17,12 @@ const siteReducer = (state = initialStore, action) => {
         ...state,
         statusError: action.statusError,
         statusAlerts: action.statusAlerts,
+      };
+    case VIEW_REVIEWS:
+      return {
+        ...state,
+        modalStatus: action.modalStatus,
+        modalType: action.modalType,
       };
     default:
       return state;

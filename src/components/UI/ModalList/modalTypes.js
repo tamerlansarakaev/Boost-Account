@@ -1,1 +1,2 @@
 export const CREATE_REVIEW_MODAL = 'CREATE_REVIEW_MODAL'
+export const ALL_REVIEWS = "ALL_REVIEWS"

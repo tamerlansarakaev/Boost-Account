@@ -1,6 +1,7 @@
 import {
   NOTIFICATION_MODAL,
   NOT_SELECT_RATE,
+  REQUEST_PROCESSED,
   SUCCESSFULLY_COMPLETED,
 } from './types';
 
@@ -9,7 +10,6 @@ const initialStore = {
 };
 
 const modalReducer = (state = initialStore, action) => {
-  console.log(action.statusMessage);
   switch (action.type) {
     case NOTIFICATION_MODAL:
       return {
@@ -19,6 +19,7 @@ const modalReducer = (state = initialStore, action) => {
       return {
         ...state,
         status: action.status,
+        statusMessage: action.statusMessage,
       };
 
     case NOT_SELECT_RATE:
@@ -26,6 +27,11 @@ const modalReducer = (state = initialStore, action) => {
         ...state,
         status: action.status,
         statusMessage: action.statusMessage,
+      };
+    case REQUEST_PROCESSED:
+      return {
+        ...state,
+        statusMessage: false,
       };
     default:
       return state;

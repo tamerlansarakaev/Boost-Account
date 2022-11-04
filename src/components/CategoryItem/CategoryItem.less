@@ -1,8 +1,29 @@
+// Animation
+@keyframes view {
+  0% {
+    opacity: 0%;
+  }
+  25% {
+    opacity: 25%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  75% {
+    opacity: 75%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+// Styles
 .category {
   flex-grow: 1;
   flex-shrink: 1;
   cursor: pointer;
   text-align: center;
+  border-radius: 9px;
   box-sizing: border-box;
   max-width: 160px;
   color: #797979;
@@ -13,8 +34,16 @@
 }
 .category.active {
   background: linear-gradient(90deg, #e5453d -14.78%, #ff7a2e 451.57%);
-  border-radius: 9px;
   color: #fff;
+  animation-name: view;
+  animation-duration: .2s;
+  transition: 0.5s;
+}
+
+.category.active:hover {
+  background: linear-gradient(90deg, #f74c43 -14.78%, #ff7a2e 451.57%);
+  box-shadow: 0 1px 5px #de342b9b;
+  transition: 0.5s;
 }
 
 @media screen and (max-width: 600px) {

@@ -2,16 +2,21 @@
 
 // Global
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { REQUEST_PROCESSED } from '../../../reducers/types';
 
 // Components
 import ModalAlerts from '../ModalAlerts/ModalAlerts';
-import { RATING_NOT_SELECTED } from './alertsTypes';
+import { RATING_NOT_SELECTED, REVIEW_POSTED } from './alertsTypes';
 
 const ModalAlertsList = () => {
   const modalState = useSelector((state) => state.modalReducer);
-  console.log(modalState.status);
-
+  const dispatch = useDispatch();
+  function hiddenModal() {
+    setTimeout(() => {
+      return dispatch({ type: REQUEST_PROCESSED });
+    }, 2000);
+  }
   function getModalAlerts(type) {
     switch (type) {
       case RATING_NOT_SELECTED:
@@ -22,11 +27,23 @@ const ModalAlertsList = () => {
             className={'activeModalAlerts'}
           />
         );
+      case REVIEW_POSTED:
+        return (
+          <ModalAlerts
+            title="Review added successfully"
+            color="#75FF69"
+            className={'activeModalAlerts'}
+          />
+        );
       default:
         return;
     }
   }
-
+  React.useEffect(() => {
+    if (modalState.statusMessage) {
+      hiddenModal();
+    }
+  }, [modalState.statusMessage]);
   return (
     <>{modalState.statusMessage ? getModalAlerts(modalState.status) : ''}</>
   );

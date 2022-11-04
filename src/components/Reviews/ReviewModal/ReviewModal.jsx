@@ -13,15 +13,15 @@ import {
   SUCCESSFULLY_COMPLETED,
   UPDATE_DATA,
 } from '../../../reducers/types';
-import { inputValidate } from './actions';
 
-// Styles
-import './ReviewModal.less';
-import './actions.less';
 import {
   RATING_NOT_SELECTED,
   REVIEW_POSTED,
 } from '../../UI/ModalAlertsList/alertsTypes';
+
+// Styles
+import './ReviewModal.less';
+import './actions.less';
 
 const ReviewModal = () => {
   const [nameInput, setNameInput] = React.useState('');
@@ -38,10 +38,8 @@ const ReviewModal = () => {
 
   async function postReview() {
     const date = new Date();
-    if (
-      inputValidate(nameInput, reviewInput, feedbackInput, finalResult) &&
-      reviews
-    ) {
+
+    if (nameInput && reviewInput && feedbackInput && finalResult && reviews) {
       await fetch('http://localhost:3000/reviews', {
         method: 'POST',
         headers: {
@@ -62,7 +60,7 @@ const ReviewModal = () => {
 
   React.useEffect(() => {
     if (clickButton) {
-      if (inputValidate(nameInput, feedbackInput, reviewInput, finalResult)) {
+      if (nameInput && reviewInput && feedbackInput && finalResult) {
         postReview();
         dispatch({
           ...state,
@@ -74,10 +72,11 @@ const ReviewModal = () => {
           ...state,
           type: SUCCESSFULLY_COMPLETED,
           status: REVIEW_POSTED,
+          statusMessage: true,
         });
         document.body.style.overflowY = 'scroll';
       }
-      if (!inputValidate(nameInput, feedbackInput, reviewInput, finalResult)) {
+      if (!finalResult) {
         dispatch({
           ...state,
           type: NOT_SELECT_RATE,
@@ -93,7 +92,7 @@ const ReviewModal = () => {
           });
         }, 1500);
       }
-      if (inputValidate(nameInput, feedbackInput, reviewInput) && !finalResult) {
+      if (!(nameInput && reviewInput && feedbackInput && finalResult)) {
         dispatch({
           type: ERROR_CONFIRM,
           statusError: true,
@@ -102,79 +101,86 @@ const ReviewModal = () => {
       }
       setTimeout(() => {
         setClickButton(null);
-      }, 1000);
+      }, 2000);
     }
   }, [clickButton]);
 
   return (
-    <div className="modal-elements">
-      <div className="modal-header">
-        <p className="modal-header-title">Enter your review</p>
-      </div>
-      <div className="modal-input-fields">
-        <div className="modal-input-element">
-          <span className="modal-input-title">Your Name:</span>
-          <Input
-            type="text"
-            className={`modal-input${!nameInput.length ? ' errorInput' : ''}`}
-            onChange={(value) => setNameInput(value)}
-            value={nameInput}
-          />
+    <div className='modal-box'>
+      <div className="modal-elements">
+        <div className="modal-header">
+          <p className="modal-header-title">Enter your review</p>
         </div>
-        <div className="modal-input-element">
-          <span className="modal-input-title">Your review topic:</span>
-          <Input
-            type="text"
-            className={`modal-input${!reviewInput.length ? ' errorInput' : ''}`}
-            onChange={(value) => setReviewInput(value)}
-          />
-        </div>
-        <div className="modal-input-element">
-          <span className="modal-input-title">Your feedback:</span>
-          <Input
-            type="text"
-            className={`modal-input${
-              !feedbackInput.length ? ' errorInput' : ''
-            }`}
-            onChange={(value) => setFeedbackInput(value)}
-          />
-        </div>
-        <div className="modal-rating-element">
-          <span className="modal-rating-title">You rating:</span>
-          <div className="modal-rating-box">
-            {rates.map((_, i) => {
-              return (
-                <React.Fragment key={i}>
-                  <input
-                    type="radio"
-                    name="rateStar"
-                    id={`rateStar${i + 1}`}
-                    key={i}
-                  />
-                  <label htmlFor={`rateStar${i + 1}`}>
-                    <ReactSVG
-                      className="modal-rating-icon"
-                      src={require('../../../UI/icons/ratingStar.svg').default}
-                      onClick={() => {
-                        setFinalResult(5 - i);
-                      }}
+        <div className="modal-input-fields">
+          <div className="modal-input-element">
+            <span className="modal-input-title">Your Name:</span>
+            <Input
+              type="text"
+              className={`modal-input${!nameInput.length ? ' errorInput' : ''}`}
+              onChange={(value) => setNameInput(value)}
+              value={nameInput}
+            />
+          </div>
+          <div className="modal-input-element">
+            <span className="modal-input-title">Your review topic:</span>
+            <Input
+              type="text"
+              className={`modal-input${
+                !reviewInput.length ? ' errorInput' : ''
+              }`}
+              onChange={(value) => setReviewInput(value)}
+            />
+          </div>
+          <div className="modal-input-element">
+            <span className="modal-input-title">Your feedback:</span>
+            <Input
+              type="text"
+              className={`modal-input${
+                !feedbackInput.length ? ' errorInput' : ''
+              }`}
+              onChange={(value) => setFeedbackInput(value)}
+            />
+          </div>
+          <div className="modal-rating-element">
+            <span className="modal-rating-title">You rating:</span>
+            <div className="modal-rating-box">
+              {rates.map((_, i) => {
+                return (
+                  <React.Fragment key={i}>
+                    <input
+                      type="radio"
+                      name="rateStar"
+                      id={`rateStar${i + 1}`}
                       key={i}
                     />
-                  </label>
-                </React.Fragment>
-              );
-            })}
+                    <label htmlFor={`rateStar${i + 1}`}>
+                      <ReactSVG
+                        className="modal-rating-icon"
+                        src={
+                          require('../../../UI/icons/ratingStar.svg').default
+                        }
+                        onClick={() => {
+                          setFinalResult(5 - i);
+                        }}
+                        key={i}
+                      />
+                    </label>
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
-        </div>
-        <div className="modal-button-element">
-          <button
-            className="modal-button"
-            onClick={(e) => {
-              setClickButton(clickButton + 1);
-            }}
-          >
-            Post a Review
-          </button>
+          <div className="modal-button-element">
+            <button
+              className="modal-button"
+              disabled={clickButton >= 2}
+              onClick={(e) => {
+                setClickButton(clickButton + 1);
+              }}
+            >
+              Post a Review
+            </button>
+          </div>
         </div>
       </div>
     </div>
