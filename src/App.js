@@ -34,6 +34,7 @@ import {
 } from './services/API';
 import ModalList from './components/UI/ModalList/ModalList';
 import ModalAlertsList from './components/UI/ModalAlertsList/ModalAlertsList';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -80,6 +81,9 @@ function App() {
           </Modal>
         )}
         {stateModal.statusMessage && <ModalAlertsList />}
+      </div>
+      <div className="footer-background">
+        <Footer />
       </div>
     </div>
   );

@@ -1,0 +1,47 @@
+.footer-messengers {
+  display: flex;
+  margin-top: 5px;
+  max-height: 158px;
+
+  .messengers {
+    display: grid;
+    grid-template-columns: repeat(2, 30px);
+    column-gap: 12px;
+    row-gap: 16px;
+    max-width: 72px;
+    margin-left: auto;
+    margin-bottom: 16px;
+  }
+
+  .messenger {
+    display: flex;
+    cursor: pointer;
+    max-height: 30px;
+    box-sizing: border-box;
+    margin-left: auto;
+    svg {
+      opacity: 44%;
+      transition: 0.5s;
+      max-width: 30px;
+    }
+
+    svg:hover {
+      opacity: 100%;
+      transition: 0.5s;
+    }
+  }
+  .messenger:last-child {
+    grid-column: 1/2;
+    justify-content: center;
+    object-position: right;
+  }
+
+  .footer-mail {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 16px;
+    color: #c6c6c6;
+    text-align: end;
+    margin-top: auto;
+  }
+}
