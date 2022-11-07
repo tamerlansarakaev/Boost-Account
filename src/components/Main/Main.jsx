@@ -11,7 +11,6 @@ import './Main.less';
 import ProductList from '../Products/ProductList/ProductList';
 import { useSelector } from 'react-redux';
 import ReviewsList from '../Reviews/ReviewsList/ReviewsList';
-import AboutUs from '../AboutUs/AboutUs';
 
 const Main = () => {
   const [category, setCategory] = React.useState('');
@@ -32,7 +31,6 @@ const Main = () => {
         <CategoriesList />
         <ProductList sort={category} />
         <ReviewsList />
-        <AboutUs/>
       </div>
     </div>
   );

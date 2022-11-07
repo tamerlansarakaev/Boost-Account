@@ -1,4 +1,3 @@
-import React from 'react';
 import Logo from '../../../UI/header/logo/logo-header.svg';
 
 // Styles
