@@ -10,11 +10,7 @@
       "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
       "typeProduct": "TBC Classic",
       "region": "EU",
-      "options": [
-        "Any KEY level",
-        "Best Gear",
-        "Fast Boost"
-      ]
+      "options": ["Any KEY level", "Best Gear", "Fast Boost"]
     },
     {
       "name": "Shadowland Powerleveling",
@@ -26,11 +22,7 @@
       "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
       "typeProduct": "TBC Classic",
       "region": "EU",
-      "options": [
-        "Any KEY level",
-        "Best Gear",
-        "Fast Boost"
-      ]
+      "options": ["Any KEY level", "Best Gear", "Fast Boost"]
     },
     {
       "name": "Shadowland Powerleveling",
@@ -43,11 +35,7 @@
       "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
       "typeProduct": "TBC Classic",
       "region": "RU",
-      "options": [
-        "Any KEY level",
-        "Best Gear",
-        "Fast Boost"
-      ]
+      "options": ["Any KEY level", "Best Gear", "Fast Boost"]
     },
     {
       "name": "Shadowland Powerleveling",
@@ -58,11 +46,7 @@
       "image": "https://sun9-17.userapi.com/impg/ewp32X0rk0SyrAB3Z-0BOuAkV-6zt89vx_iOnA/y9nFY6ZeGcI.jpg?size=1000x563&quality=96&sign=09a10b164f8d3f433ed47ea9975f7ac9&type=album",
       "typeProduct": "Shadowlands",
       "region": "US",
-      "options": [
-        "Any KEY level",
-        "Best Gear",
-        "Fast Boost"
-      ]
+      "options": ["Any KEY level", "Best Gear", "Fast Boost"]
     }
   ],
   "categories": [
@@ -94,126 +78,9 @@
       "src": "https://google.com"
     }
   ],
-  "regions": [
-    "US",
-    "EU",
-    "RU"
-  ],
+  "regions": ["US", "EU", "RU"],
   "menu": {
     "backgroundImage": "https://sun9-81.userapi.com/impg/rUqG3z9ITfmGj8BfAi0CncxtGxP-VF4yStBpHQ/pYoeQ5qjYHI.jpg?size=1280x720&quality=96&sign=1c47877299921e0fe1a8cc688a6daae5&type=album"
   },
-  "reviews": [
-    {
-      "name": "das",
-      "titleReview": "sadasd",
-      "description": "asdasd",
-      "rate": 4,
-      "publictaionDate": "04.11.2022",
-      "id": 1
-    },
-    {
-      "name": "dsadas",
-      "titleReview": "dasdasd",
-      "description": "asdasd",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 2
-    },
-    {
-      "name": "dsadas",
-      "titleReview": "dasda",
-      "description": "sdasdas",
-      "rate": 4,
-      "publictaionDate": "04.11.2022",
-      "id": 3
-    },
-    {
-      "name": "dasd",
-      "titleReview": "dasdas",
-      "description": "dasdasdas",
-      "rate": 4,
-      "publictaionDate": "04.11.2022",
-      "id": 4
-    },
-    {
-      "name": "Zeref",
-      "titleReview": "asdas",
-      "description": "dasdas",
-      "rate": 2,
-      "publictaionDate": "04.11.2022",
-      "id": 5
-    },
-    {
-      "name": "dasdasdas",
-      "titleReview": "dasd",
-      "description": "asdasdsadas",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 6
-    },
-    {
-      "name": "Hello EveryOne",
-      "titleReview": "Zeref",
-      "description": "Games!",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 7
-    },
-    {
-      "name": "вфыв",
-      "titleReview": "фыв",
-      "description": "выфвф",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 8
-    },
-    {
-      "name": "выфвыф",
-      "titleReview": "вфыв",
-      "description": "фывфы",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 9
-    },
-    {
-      "name": "Dsdadas",
-      "titleReview": "dasdasd",
-      "description": "asdsad",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 10
-    },
-    {
-      "name": "dasdasda",
-      "titleReview": "sdasd",
-      "description": "asdasd",
-      "rate": 4,
-      "publictaionDate": "04.11.2022",
-      "id": 11
-    },
-    {
-      "name": "dsadasda",
-      "titleReview": "sdasdas",
-      "description": "dasd",
-      "rate": 5,
-      "publictaionDate": "04.11.2022",
-      "id": 12
-    },
-    {
-      "name": "fasdas",
-      "titleReview": "dasdas",
-      "description": "dasdasdasd",
-      "rate": 4,
-      "publictaionDate": "04.11.2022",
-      "id": 13
-    },
-    {
-      "name": "FirstViewPortFolio",
-      "titleReview": "FirstViewPortFolio",
-      "description": "FirstViewPortFolio",
-      "rate": 5,
-      "publictaionDate": "08.11.2022",
-      "id": 14
-    }
-  ]
+  "reviews": []
 }
