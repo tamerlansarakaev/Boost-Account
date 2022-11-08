@@ -40,6 +40,7 @@ const ReviewModal = () => {
     const date = new Date();
 
     if (nameInput && reviewInput && feedbackInput && finalResult && reviews) {
+      console.log('Succes!!')
       await fetch(
         'https://my-json-server.typicode.com/tamerlansarakaev/database/reviews',
         {
