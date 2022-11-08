@@ -1,7 +1,7 @@
 export const getProducts = async () => {
   const result = await fetch('http://localhost:3000/products')
     .then((response) => response.json())
-    .then((product) => product)
+    .then((data) => data.products)
     .catch((error) => console.log(error));
   return result;
 };
@@ -9,7 +9,7 @@ export const getProducts = async () => {
 export const getRegions = async () => {
   const result = await fetch('http://localhost:3000/regions')
     .then((response) => response.json())
-    .then((product) => product)
+    .then((product) => product.regions)
     .catch((error) => console.log(error));
   return result;
 };
@@ -17,31 +17,37 @@ export const getRegions = async () => {
 export const getLinks = async () => {
   const result = await fetch('http://localhost:3000/links')
     .then((response) => response.json())
-    .then((product) => product)
+    .then((product) => product.links)
     .catch((error) => console.log(error));
   return result;
 };
 
 export const getCategories = async () => {
-  const result = await fetch('https://my-json-server.typicode.com/tamerlansarakaev/database/data')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
-    .then((product) => console.log(product))
+    .then((product) => product.categories)
     .catch((error) => console.log(error));
   return result;
 };
 
 export const getMenu = async () => {
-  const result = await fetch('http://localhost:3000/menu')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
-    .then((product) => product)
+    .then((product) => product.menu)
     .catch((error) => console.log(error));
   return result;
 };
 
 export const getReviews = async () => {
-  const result = await fetch('http://localhost:3000/reviews')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
-    .then((product) => product)
+    .then((product) => product.reviews)
     .catch((error) => console.log(error));
   return result;
 };
