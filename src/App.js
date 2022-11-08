@@ -56,7 +56,6 @@ function App() {
   React.useEffect(() => {
     setAllData();
     if (statusUpdate) {
-      console.log('Update!');
       setAllData();
       dispatch({
         ...state,
@@ -65,7 +64,7 @@ function App() {
       });
     }
   }, [statusUpdate]);
-  console.log('00000000000000000000000000000')
+  console.log('00000000000000000000000000000');
   return (
     <div className="App">
       <img className="background" src={BackGround} alt="background" />
