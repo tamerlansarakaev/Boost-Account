@@ -30,7 +30,7 @@ const ModalAlertsList = () => {
       case REVIEW_POSTED:
         return (
           <ModalAlerts
-            title="Review added successfully"
+            title="Your feedback for moderation!"
             color="#75FF69"
             className={'activeModalAlerts'}
           />
