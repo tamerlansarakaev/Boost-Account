@@ -13,7 +13,7 @@ export const getRegions = async () => {
     'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
   )
     .then((response) => response.json())
-    .then((product) => product.regions)
+    .then((data) => data.regions)
     .catch((error) => console.log(error));
   return result;
 };
@@ -23,7 +23,7 @@ export const getLinks = async () => {
     'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
   )
     .then((response) => response.json())
-    .then((product) => product.links)
+    .then((data) => data.links)
     .catch((error) => console.log(error));
   return result;
 };
@@ -33,7 +33,7 @@ export const getCategories = async () => {
     'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
   )
     .then((response) => response.json())
-    .then((product) => product.categories)
+    .then((data) => data.categories)
     .catch((error) => console.log(error));
   return result;
 };
@@ -43,17 +43,17 @@ export const getMenu = async () => {
     'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
   )
     .then((response) => response.json())
-    .then((product) => product.menu)
+    .then((data) => data.menu)
     .catch((error) => console.log(error));
   return result;
 };
 
 export const getReviews = async () => {
   const result = await fetch(
-    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/reviews'
   )
     .then((response) => response.json())
-    .then((product) => product.reviews)
+    .then((reviews) => reviews)
     .catch((error) => console.log(error));
   return result;
 };
