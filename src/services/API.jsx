@@ -23,9 +23,9 @@ export const getLinks = async () => {
 };
 
 export const getCategories = async () => {
-  const result = await fetch('http://localhost:3000/categories')
+  const result = await fetch('https://my-json-server.typicode.com/tamerlansarakaev/database/data')
     .then((response) => response.json())
-    .then((product) => product)
+    .then((product) => console.log(product))
     .catch((error) => console.log(error));
   return result;
 };
