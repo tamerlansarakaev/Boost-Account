@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Boost-Account/static/js/main.f2e1496c.js",
+    "main.js": "/Boost-Account/static/js/main.17350958.js",
     "static/media/background.png": "/Boost-Account/static/media/background.ee2e9b247cd7f8213206.png",
     "static/media/logo-header.svg": "/Boost-Account/static/media/logo-header.981586ba4a7dbf55efba0b8446de708b.svg",
     "static/media/Trustpilot.svg": "/Boost-Account/static/media/Trustpilot.1c195dc9329c071affbec9e5084b9fac.svg",
@@ -34,9 +34,9 @@
     "static/media/menu mobile.svg": "/Boost-Account/static/media/menu mobile.986fe34152a0793daa6b1c07db4e82c8.svg",
     "static/media/search.svg": "/Boost-Account/static/media/search.ae836c32673b8626b19ce0a8d7ee605f.svg",
     "static/media/timePublicate.svg": "/Boost-Account/static/media/timePublicate.f1721b1c04557b6b1af367b682c1a38a.svg",
-    "main.f2e1496c.js.map": "/Boost-Account/static/js/main.f2e1496c.js.map"
+    "main.17350958.js.map": "/Boost-Account/static/js/main.17350958.js.map"
   },
   "entrypoints": [
-    "static/js/main.f2e1496c.js"
+    "static/js/main.17350958.js"
   ]
 }
