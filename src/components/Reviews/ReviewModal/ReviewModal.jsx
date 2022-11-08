@@ -40,19 +40,22 @@ const ReviewModal = () => {
     const date = new Date();
 
     if (nameInput && reviewInput && feedbackInput && finalResult && reviews) {
-      await fetch('http://localhost:3000/reviews', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: nameInput,
-          titleReview: reviewInput,
-          description: feedbackInput,
-          rate: finalResult,
-          publictaionDate: date.toLocaleDateString(),
-        }),
-      })
+      await fetch(
+        'https://my-json-server.typicode.com/tamerlansarakaev/database/reviews',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: nameInput,
+            titleReview: reviewInput,
+            description: feedbackInput,
+            rate: finalResult,
+            publictaionDate: date.toLocaleDateString(),
+          }),
+        }
+      )
         .then(() => dispatch({ ...state, type: UPDATE_DATA, status: 'UPDATE' }))
         .catch((err) => console.log(err));
     }
@@ -106,7 +109,7 @@ const ReviewModal = () => {
   }, [clickButton]);
 
   return (
-    <div className='modal-box'>
+    <div className="modal-box">
       <div className="modal-elements">
         <div className="modal-header">
           <p className="modal-header-title">Enter your review</p>
