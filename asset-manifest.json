@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.js": "/Boost-Account/static/js/main.f2e1496c.js",
+    "static/media/background.png": "/Boost-Account/static/media/background.ee2e9b247cd7f8213206.png",
+    "static/media/logo-header.svg": "/Boost-Account/static/media/logo-header.981586ba4a7dbf55efba0b8446de708b.svg",
+    "static/media/Trustpilot.svg": "/Boost-Account/static/media/Trustpilot.1c195dc9329c071affbec9e5084b9fac.svg",
+    "static/media/quession.svg": "/Boost-Account/static/media/quession.b3169e1429e721c74ec4.svg",
+    "static/media/Raids.svg": "/Boost-Account/static/media/Raids.f9a691cda93f90baa278.svg",
+    "static/media/Farming.svg": "/Boost-Account/static/media/Farming.ca253c4bc436231fceb5.svg",
+    "static/media/star.svg": "/Boost-Account/static/media/star.66f96395ea494382bf17ed11881496ec.svg",
+    "static/media/Castle Nathria.svg": "/Boost-Account/static/media/Castle Nathria.53408a9592ae1bed1b3f.svg",
+    "static/media/instagram.svg": "/Boost-Account/static/media/instagram.7e66b0c693521e3bb75c5861fbf0351d.svg",
+    "static/media/most.svg": "/Boost-Account/static/media/most.ae791d8c8e466c432add3fe0c034cc63.svg",
+    "static/media/discord.svg": "/Boost-Account/static/media/discord.11aa304f29ec32f23866a017d04fd040.svg",
+    "static/media/TBC Classic.svg": "/Boost-Account/static/media/TBC Classic.2e0eba5a93c276c789d8.svg",
+    "static/media/sale.svg": "/Boost-Account/static/media/sale.6b37a3ad5757db9da257.svg",
+    "static/media/PvP.svg": "/Boost-Account/static/media/PvP.79a96dcd47849c10536c.svg",
+    "static/media/skype.svg": "/Boost-Account/static/media/skype.e8e2ab79c282a8a33aa2dae33c499beb.svg",
+    "static/media/Torghast.svg": "/Boost-Account/static/media/Torghast.ab6edd42ab4786b46889.svg",
+    "static/media/HandPointing.svg": "/Boost-Account/static/media/HandPointing.d5fdcb57b0eb0ac8766b.svg",
+    "static/media/CreditCard.svg": "/Boost-Account/static/media/CreditCard.d03039682a4c5e504270.svg",
+    "static/media/telegram.svg": "/Boost-Account/static/media/telegram.b77166ea6db7854669d07216cbbc6c7f.svg",
+    "static/media/Shadowlands.svg": "/Boost-Account/static/media/Shadowlands.6fff8a16927286cb6ee7.svg",
+    "static/media/monitor.svg": "/Boost-Account/static/media/monitor.9cf02c98182f3dba9c78.svg",
+    "static/media/Mounts.svg": "/Boost-Account/static/media/Mounts.adf3e681498ed8d28297.svg",
+    "static/media/Gearing.svg": "/Boost-Account/static/media/Gearing.fef1cd2e2345702c4ceb.svg",
+    "static/media/review star.svg": "/Boost-Account/static/media/review star.2741e25df891d0370349d8c06e7fb738.svg",
+    "static/media/basket.svg": "/Boost-Account/static/media/basket.a8a3d33b105007f5afb529e79e34c5ac.svg",
+    "static/media/ratingStar.svg": "/Boost-Account/static/media/ratingStar.a1e0a9e0787d610ef69179a0626e6157.svg",
+    "static/media/FireIcon.svg": "/Boost-Account/static/media/FireIcon.96ff1cc70e845c261e3a.svg",
+    "index.html": "/Boost-Account/index.html",
+    "static/media/facebook.svg": "/Boost-Account/static/media/facebook.7b79ef6c9f5e5e4c3fe13f4fc1fccd78.svg",
+    "static/media/ShoppingBag.svg": "/Boost-Account/static/media/ShoppingBag.3435acbfd2cf5945784a.svg",
+    "static/media/menu mobile.svg": "/Boost-Account/static/media/menu mobile.986fe34152a0793daa6b1c07db4e82c8.svg",
+    "static/media/search.svg": "/Boost-Account/static/media/search.ae836c32673b8626b19ce0a8d7ee605f.svg",
+    "static/media/timePublicate.svg": "/Boost-Account/static/media/timePublicate.f1721b1c04557b6b1af367b682c1a38a.svg",
+    "main.f2e1496c.js.map": "/Boost-Account/static/js/main.f2e1496c.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f2e1496c.js"
+  ]
+}
