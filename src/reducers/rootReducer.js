@@ -14,6 +14,7 @@ const initialStore = {
 };
 
 const rootReducer = (state = initialStore, action) => {
+  console.log(action)
   switch (action.type) {
     case DATA_LOADED:
       return {
