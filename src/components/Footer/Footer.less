@@ -26,5 +26,44 @@
     justify-content: space-between;
     margin-bottom: 35px;
     box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+}
+
+// Adaptive Footer
+@media screen and (max-width: 700px) {
+  .footer {
+    &-elements {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-logo {
+      order: -1;
+    }
+
+    &-links {
+      display: flex;
+      justify-content: space-between;
+      max-width: 295px !important;
+      width: 100%;
+      column-count: 2;
+      margin: 0 auto !important;
+    }
+
+    .reviews-footer {
+      margin-bottom: 24px !important;
+    }
+
+    &-messengers {
+      justify-content: center;
+      margin-top: 30px !important;
+
+      .messengers {
+        display: flex !important;
+        max-width: none !important;
+      }
+    }
   }
 }

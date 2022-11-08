@@ -10,9 +10,6 @@ import './AllReviews.less';
 
 const AllReviews = () => {
   const reviews = useSelector((state) => state.server.reviews);
-  React.useEffect(() => {
-    console.log(1);
-  }, []);
   return (
     <div className="all-reviews">
       <span className="all-reviews-title">All reviews</span>
