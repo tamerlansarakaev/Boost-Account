@@ -1,5 +1,7 @@
 export const getProducts = async () => {
-  const result = await fetch('http://localhost:3000/products')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
     .then((data) => data.products)
     .catch((error) => console.log(error));
@@ -7,7 +9,9 @@ export const getProducts = async () => {
 };
 
 export const getRegions = async () => {
-  const result = await fetch('http://localhost:3000/regions')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
     .then((product) => product.regions)
     .catch((error) => console.log(error));
@@ -15,7 +19,9 @@ export const getRegions = async () => {
 };
 
 export const getLinks = async () => {
-  const result = await fetch('http://localhost:3000/links')
+  const result = await fetch(
+    'https://my-json-server.typicode.com/tamerlansarakaev/database/data'
+  )
     .then((response) => response.json())
     .then((product) => product.links)
     .catch((error) => console.log(error));
