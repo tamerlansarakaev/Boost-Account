@@ -65,7 +65,7 @@ function App() {
       });
     }
   }, [statusUpdate]);
-
+  console.log('00000000000000000000000000000')
   return (
     <div className="App">
       <img className="background" src={BackGround} alt="background" />
