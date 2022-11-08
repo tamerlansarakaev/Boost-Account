@@ -56,7 +56,6 @@ function App() {
   React.useEffect(() => {
     setAllData();
     if (statusUpdate) {
-      console.log('Update!');
       setAllData();
       dispatch({
         ...state,
