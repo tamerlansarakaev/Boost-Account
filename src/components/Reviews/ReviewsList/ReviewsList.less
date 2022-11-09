@@ -58,3 +58,31 @@
     justify-content: center;
   }
 }
+
+@media screen and (max-width: 425px) {
+  .reviews {
+    .empty-reviews {
+      padding: 25px 40px;
+
+      p {
+        max-width: none;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .reviews {
+    .empty-reviews {
+      padding: 25px 28px;
+
+      p {
+        font-size: 14px;
+      }
+    }
+    &-title span {
+      font-size: 28px;
+    }
+  }
+}
