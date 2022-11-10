@@ -1,0 +1,25 @@
+import {
+  DATA_LOADED,
+  SET_CATEGORIES,
+  SET_LINKS,
+  SET_MENU,
+  SET_MODAL_STATUS,
+  SET_PRODUCTS,
+  SET_REGIONS,
+  SET_REVIEWS,
+} from '../reducers/types';
+
+function allTypes() {
+  return {
+    DATA_LOADED: DATA_LOADED,
+    SET_CATEGORIES: SET_CATEGORIES,
+    SET_LINKS: SET_LINKS,
+    SET_MENU: SET_MENU,
+    SET_MODAL_STATUS: SET_MODAL_STATUS,
+    SET_PRODUCTS: SET_PRODUCTS,
+    SET_REGIONS: SET_REGIONS,
+    SET_REVIEWS: SET_REVIEWS,
+  };
+}
+
+export default allTypes;
