@@ -1,6 +1,13 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+// Animation
+@keyframes smooth-appearance {
+  0% {
+    opacity: 0%;
+  }
+}
+
 p {
   margin: 0;
 }
@@ -17,6 +24,10 @@ p {
   &-container {
     padding: 11px 7px 27px 33px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-between;
   }
 
   &-background {
@@ -36,6 +47,7 @@ p {
         position: absolute;
       }
     }
+
     .product-background-image-container::after {
       position: absolute;
       top: 1px;
@@ -48,14 +60,7 @@ p {
       );
       content: '';
       height: 100%;
-    }
-
-    .product-background-image-container::after:hover {
-      background: linear-gradient(
-        17.36deg,
-        #280a0a 36.96%,
-        rgba(66, 20, 20, 0) 84.63%
-      );
+      transition: all 0.5s;
     }
   }
   &-header {
@@ -220,5 +225,15 @@ p {
 
   .standartBG {
     background: #5b5b5b;
+  }
+}
+
+.product:hover {
+  .product-background-image-container::after {
+    background: linear-gradient(
+      17.36deg,
+      #280a0a 36.96%,
+      rgba(66, 20, 20, 0) 84.63%
+    );
   }
 }

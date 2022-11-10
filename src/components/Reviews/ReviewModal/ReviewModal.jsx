@@ -24,11 +24,13 @@ import './ReviewModal.less';
 import './actions.less';
 
 const ReviewModal = () => {
-  const [nameInput, setNameInput] = React.useState('');
-  const [reviewInput, setReviewInput] = React.useState('');
-  const [feedbackInput, setFeedbackInput] = React.useState('');
   const [clickButton, setClickButton] = React.useState(0);
-  const [finalResult, setFinalResult] = React.useState(null);
+  const [review, setReview] = React.useState({
+    nameInput: '',
+    reviewInput: '',
+    feedbackInput: '',
+    rate: null,
+  });
 
   const state = useSelector((state) => state.server);
   const siteState = useSelector((state) => state.site);
@@ -39,7 +41,13 @@ const ReviewModal = () => {
   async function postReview() {
     const date = new Date();
 
-    if (nameInput && reviewInput && feedbackInput && finalResult && reviews) {
+    if (
+      review.nameInput &&
+      review.reviewInput &&
+      review.feedbackInput &&
+      review.rate &&
+      reviews
+    ) {
       await fetch(
         'https://my-json-server.typicode.com/tamerlansarakaev/database/reviews',
         {
@@ -48,10 +56,10 @@ const ReviewModal = () => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: nameInput,
-            titleReview: reviewInput,
-            description: feedbackInput,
-            rate: finalResult,
+            name: review.nameInput,
+            titleReview: review.reviewInput,
+            description: review.feedbackInput,
+            rate: review.rate,
             publictaionDate: date.toLocaleDateString(),
           }),
         }
@@ -63,7 +71,12 @@ const ReviewModal = () => {
 
   React.useEffect(() => {
     if (clickButton) {
-      if (nameInput && reviewInput && feedbackInput && finalResult) {
+      if (
+        review.nameInput &&
+        review.reviewInput &&
+        review.feedbackInput &&
+        review.finalResult
+      ) {
         postReview();
         dispatch({
           ...state,
@@ -79,7 +92,7 @@ const ReviewModal = () => {
         });
         document.body.style.overflowY = 'scroll';
       }
-      if (!finalResult) {
+      if (!review.finalResult) {
         dispatch({
           ...state,
           type: NOT_SELECT_RATE,
@@ -95,7 +108,14 @@ const ReviewModal = () => {
           });
         }, 1500);
       }
-      if (!(nameInput && reviewInput && feedbackInput && finalResult)) {
+      if (
+        !(
+          review.nameInput &&
+          review.reviewInput &&
+          review.feedbackInput &&
+          review.rate
+        )
+      ) {
         dispatch({
           type: ERROR_CONFIRM,
           statusError: true,
@@ -119,9 +139,11 @@ const ReviewModal = () => {
             <span className="modal-input-title">Your Name:</span>
             <Input
               type="text"
-              className={`modal-input${!nameInput.length ? ' errorInput' : ''}`}
-              onChange={(value) => setNameInput(value)}
-              value={nameInput}
+              className={`modal-input${
+                !review.nameInput.length ? ' errorInput' : ''
+              }`}
+              onChange={(value) => setReview({ ...review, nameInput: value })}
+              value={review.nameInput}
             />
           </div>
           <div className="modal-input-element">
@@ -129,9 +151,9 @@ const ReviewModal = () => {
             <Input
               type="text"
               className={`modal-input${
-                !reviewInput.length ? ' errorInput' : ''
+                !review.reviewInput.length ? ' errorInput' : ''
               }`}
-              onChange={(value) => setReviewInput(value)}
+              onChange={(value) => setReview({ ...review, reviewInput: value })}
             />
           </div>
           <div className="modal-input-element">
@@ -139,9 +161,11 @@ const ReviewModal = () => {
             <Input
               type="text"
               className={`modal-input${
-                !feedbackInput.length ? ' errorInput' : ''
+                !review.feedbackInput.length ? ' errorInput' : ''
               }`}
-              onChange={(value) => setFeedbackInput(value)}
+              onChange={(value) =>
+                setReview({ ...review, feedbackInput: value })
+              }
             />
           </div>
           <div className="modal-rating-element">
@@ -163,7 +187,7 @@ const ReviewModal = () => {
                           require('../../../UI/icons/ratingStar.svg').default
                         }
                         onClick={() => {
-                          setFinalResult(5 - i);
+                          setReview({ ...review, rate: 5 - i });
                         }}
                         key={i}
                       />
