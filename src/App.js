@@ -6,17 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 // Components
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
-import {
-  DATA_LOADED,
-  SET_CATEGORIES,
-  SET_LINKS,
-  SET_MENU,
-  SET_MODAL_STATUS,
-  SET_PRODUCTS,
-  SET_REGIONS,
-  SET_REVIEWS,
-} from './reducers/types';
 import Modal from './components/UI/Modal/Modal';
+import ModalList from './components/UI/ModalList/ModalList';
+import ModalAlertsList from './components/UI/ModalAlertsList/ModalAlertsList';
+import Footer from './components/Footer/Footer';
+
+// API and Types
+import combineAPI from './services/combineAPI';
+import allTypes from './services/allTypes';
 
 // UI
 import BackGround from './UI/background/background.png';
@@ -24,17 +21,6 @@ import BackGround from './UI/background/background.png';
 // Styles
 import './App.less';
 import './components/GlobalStyles/GlobalStyles.less';
-import {
-  getCategories,
-  getLinks,
-  getMenu,
-  getProducts,
-  getRegions,
-  getReviews,
-} from './services/API';
-import ModalList from './components/UI/ModalList/ModalList';
-import ModalAlertsList from './components/UI/ModalAlertsList/ModalAlertsList';
-import Footer from './components/Footer/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -42,24 +28,39 @@ function App() {
   const statusUpdate = useSelector((state) => state.server.status);
   const stateModal = useSelector((state) => state.modalReducer);
   const state = useSelector((state) => state);
-
   async function setAllData() {
-    dispatch({ type: SET_PRODUCTS, products: await getProducts() });
-    dispatch({ type: SET_REGIONS, region: await getRegions() });
-    dispatch({ type: SET_LINKS, links: await getLinks() });
-    dispatch({ type: SET_CATEGORIES, categories: await getCategories() });
-    dispatch({ type: SET_MENU, menu: await getMenu() });
-    dispatch({ type: SET_REVIEWS, reviews: await getReviews() });
-    dispatch({ type: SET_MODAL_STATUS, modalStatus: false });
+    const API = combineAPI();
+    const types = allTypes();
+
+    dispatch({
+      type: types.SET_PRODUCTS,
+      products: await API.getProducts(),
+    });
+    dispatch({
+      type: types.SET_REGIONS,
+      region: await API.getRegions(),
+    });
+    dispatch({ type: types.SET_LINKS, links: await API.getLinks() });
+    dispatch({
+      type: types.SET_CATEGORIES,
+      categories: await API.getCategories(),
+    });
+    dispatch({ type: types.SET_MENU, menu: await API.getMenu() });
+    dispatch({
+      type: types.SET_REVIEWS,
+      reviews: await API.getReviews(),
+    });
+    dispatch({ type: types.SET_MODAL_STATUS, modalStatus: false });
   }
 
   React.useEffect(() => {
+    const types = allTypes();
     setAllData();
     if (statusUpdate) {
       setAllData();
       dispatch({
         ...state,
-        type: DATA_LOADED,
+        type: types.DATA_LOADED,
         status: 'All data loaded this site!',
       });
     }

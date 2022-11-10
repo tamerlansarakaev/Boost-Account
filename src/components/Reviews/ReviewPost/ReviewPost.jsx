@@ -39,7 +39,7 @@ function ReviewPost() {
 
   function saveStatus() {
     if (state) {
-      setStatus(!state.modalStatus);
+      setStatus(true);
       dispatch({
         ...state,
         type: SET_MODAL_STATUS,
