@@ -14,7 +14,7 @@ import './Cart.less';
 
 function Cart() {
   const [status, setStatus] = React.useState(false);
-  const [version, setVersion] = React.useState('0.5');
+  const [version] = React.useState('0.5');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   React.useEffect(() => {

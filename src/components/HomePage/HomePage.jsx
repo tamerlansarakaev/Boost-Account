@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +7,6 @@ import combineAPI from '../../services/combineAPI';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import Modal from '../UI/Modal/Modal';
 import ModalAlertsList from '../UI/ModalAlertsList/ModalAlertsList';
 import ModalList from '../UI/ModalList/ModalList';
 

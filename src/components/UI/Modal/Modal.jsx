@@ -9,7 +9,7 @@ import './Modal.less';
 
 function Modal({ children, onClick = () => {} }) {
   const state = useSelector((state) => state.site);
-  const [status, setStatus] = React.useState(true);
+  const [status] = React.useState(true);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });

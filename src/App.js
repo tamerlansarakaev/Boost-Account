@@ -11,7 +11,7 @@ import './App.less';
 import './components/GlobalStyles/GlobalStyles.less';
 
 function App() {
-  const [version, setVersion] = React.useState('0.5');
+  const [version] = React.useState('0.5');
   return (
     <BrowserRouter>
       <Routes>
