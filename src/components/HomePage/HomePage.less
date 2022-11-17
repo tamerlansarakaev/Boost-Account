@@ -1,0 +1,43 @@
+/*Basic Styles*/
+.home-page {
+  background-color: #131212;
+  position: relative;
+  width: 100%;
+
+  .background {
+    width: 100%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select: none;
+    position: absolute;
+  }
+
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 165px;
+    max-width: 1440px;
+    align-items: center;
+    box-sizing: border-box;
+
+    .Container {
+      z-index: 2;
+      width: 100%;
+    }
+  }
+
+  .Header-Line {
+    width: 100%;
+    background: rgba(20, 20, 20, 0.12);
+    height: 71px;
+    z-index: 1;
+    position: absolute;
+  }
+
+  .footer-background {
+    background-color: #181818;
+  }
+}

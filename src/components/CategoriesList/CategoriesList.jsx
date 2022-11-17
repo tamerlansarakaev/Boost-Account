@@ -5,6 +5,7 @@ import { DATA_LOADED } from '../../reducers/types';
 
 // Components
 import CategoryItem from '../CategoryItem/CategoryItem';
+import { LOADING_SITE } from '../UI/ModalList/modalTypes';
 
 // Styles
 import './CategoriesList.less';
@@ -17,13 +18,13 @@ const CategoriesList = () => {
   const dispatch = useDispatch();
 
   function checkCategory() {
-    if (state && stateServer) {
+    if (state && stateServer && stateServer.products) {
       setActive(stateServer.activeCategory);
     }
   }
 
   React.useEffect(() => {
-    if (stateServer) {
+    if (stateServer.products) {
       dispatch({ ...state, type: DATA_LOADED, activeCategory: active });
     }
   }, [active]);

@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Components
 import ProductItem from '../ProductItem/ProductItem';
@@ -10,19 +11,29 @@ import './ProductList.less';
 
 // UI
 import IconMost from '../../../UI/icons/most.svg';
+import { CART_PRODUCT } from '../../../reducers/types';
 
 function ProductList() {
   const products = useSelector((state) => state.server.products) || [];
-  const state = useSelector((state) => state.server);
+  const stateServer = useSelector((state) => state.server);
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
   const sortArray = products.sort((a, b) => {
-    if (a.typeProduct === state.activeCategory) {
+    if (a.typeProduct === stateServer.activeCategory) {
       return -1;
-    } else if (b.typeProduct === state.activeCategory) {
+    } else if (b.typeProduct === stateServer.activeCategory) {
       return 1;
     } else {
       return 0;
     }
   });
+
+  const [cartProduct, setCartProduct] = React.useState([]);
+  React.useEffect(() => {
+    if (cartProduct.length) {
+      dispatch({ ...state, type: CART_PRODUCT, cartProduct: cartProduct });
+    }
+  }, [cartProduct]);
 
   return (
     <div className="products">
@@ -37,7 +48,7 @@ function ProductList() {
               ProductTitle={products.name.toUpperCase()}
               publicateDate={products.publicationDate}
               className={
-                products.typeProduct === state.activeCategory
+                products.typeProduct === stateServer.activeCategory
                   ? 'greenGradient'
                   : 'redGradient'
               }
@@ -47,8 +58,11 @@ function ProductList() {
               status={products.status}
               price={products.price}
               image={products.image}
-              id={i}
+              id={products.id}
               options={products.options}
+              onClick={(product) => {
+                setCartProduct([...cartProduct, product]);
+              }}
               key={products.id}
             />
           );

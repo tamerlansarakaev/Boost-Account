@@ -1,4 +1,10 @@
-import { ERROR_CONFIRM, SET_MODAL_STATUS, VIEW_REVIEWS } from './types';
+import { LOADING_SITE } from '../components/UI/ModalList/modalTypes';
+import {
+  CART_PRODUCT,
+  ERROR_CONFIRM,
+  SET_MODAL_STATUS,
+  VIEW_REVIEWS,
+} from './types';
 
 const initialStore = {
   statusError: false,
@@ -23,6 +29,18 @@ const siteReducer = (state = initialStore, action) => {
         ...state,
         modalStatus: action.modalStatus,
         modalType: action.modalType,
+      };
+    case CART_PRODUCT:
+      return {
+        ...state,
+        cartProduct: action.cartProduct,
+      };
+
+    case LOADING_SITE:
+      return {
+        ...state,
+        modalType: LOADING_SITE,
+        modalStatus: true,
       };
     default:
       return state;

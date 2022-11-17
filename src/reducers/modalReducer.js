@@ -1,4 +1,5 @@
 import {
+  CART_PAGE,
   NOTIFICATION_MODAL,
   NOT_SELECT_RATE,
   REQUEST_PROCESSED,
@@ -20,6 +21,7 @@ const modalReducer = (state = initialStore, action) => {
         ...state,
         status: action.status,
         statusMessage: action.statusMessage,
+        statusModal: action.statusModal,
       };
 
     case NOT_SELECT_RATE:
@@ -32,6 +34,11 @@ const modalReducer = (state = initialStore, action) => {
       return {
         ...state,
         statusMessage: false,
+      };
+    case CART_PAGE:
+      return {
+        ...state,
+        cartPage: action.cartPage,
       };
     default:
       return state;

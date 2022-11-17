@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Router, Routes } from 'react-router-dom';
 import RegionList from '../../RegionList/RegionList';
 
 // Components
-import Cart from '../../UI/Cart/Cart';
+import Cart from '../../UI/Cart/Cart.jsx';
 import LogoSite from '../../UI/Logo/Logo';
 import Menu from '../../UI/Menu/Menu';
 

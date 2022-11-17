@@ -15,7 +15,7 @@ const ModalAlertsList = () => {
   function hiddenModal() {
     setTimeout(() => {
       return dispatch({ type: REQUEST_PROCESSED });
-    }, 2000);
+    }, 800);
   }
   function getModalAlerts(type) {
     switch (type) {
