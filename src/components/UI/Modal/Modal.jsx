@@ -7,24 +7,10 @@ import { SET_MODAL_STATUS } from '../../../reducers/types';
 // Styles
 import './Modal.less';
 
-function Modal({ children }) {
+function Modal({ children, onClick = () => {} }) {
   const state = useSelector((state) => state.site);
   const [status, setStatus] = React.useState(true);
   const dispatch = useDispatch();
-  function saveStatus() {
-    if (state) {
-      setStatus(!state.modalStatus);
-      dispatch({
-        ...state,
-        type: SET_MODAL_STATUS,
-        modalStatus: status,
-      });
-    } else {
-      setStatus(false);
-      dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
-    }
-  }
-
   React.useEffect(() => {
     dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
 
@@ -37,7 +23,12 @@ function Modal({ children }) {
 
   return (
     <div className="modal-wrapper">
-      <div className="modal-background" onClick={() => saveStatus()}></div>
+      <div
+        className="modal-background"
+        onClick={() => {
+          onClick();
+        }}
+      ></div>
       {children}
     </div>
   );

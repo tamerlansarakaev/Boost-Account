@@ -195,6 +195,7 @@ p {
     padding: 20px 29px;
     font-family: 'Inter';
     font-weight: 700;
+    transition: 0.3s;
     font-size: 20px;
     color: #fff;
     user-select: none;
@@ -203,18 +204,26 @@ p {
     border-radius: 15px;
   }
 
+  .button:disabled {
+    background: #f1433a80;
+    box-shadow: none;
+  }
+  .button:disabled:hover {
+    background: #f1433a80;
+    box-shadow: none;
+
+  }
+
   .button:hover {
     background: #fc4339;
     border-radius: 15px;
     box-shadow: 0px 4px 39px rgba(231, 87, 87, 0.25);
-    transition: 0.5s;
   }
 
   .button:focus {
     background: #f1433a;
     box-shadow: 0px 4px 39px rgba(231, 87, 87, 0.25),
       inset 0px 4px 26px rgba(79, 8, 8, 0.61);
-    transition: 0.5s;
   }
 
   .product-main {

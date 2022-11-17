@@ -6,7 +6,7 @@ import RegionList from '../RegionList/RegionList';
 import HeaderNav from '../HeaderNav/HeaderNav';
 import Search from '../Search/Search';
 import LogoSite from '../UI/Logo/Logo';
-import Cart from '../UI/Cart/Cart';
+import Cart from '../UI/Cart/Cart.jsx';
 import AdaptiveHeader from './AdaptveHeader/AdaptiveHeader';
 
 // Styles

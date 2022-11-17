@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 import { ReactSVG } from 'react-svg';
@@ -5,13 +6,13 @@ import { ReactSVG } from 'react-svg';
 // Components
 import ProductMainElement from './ProductMainElement/ProductMainElement';
 import Button from '../../UI/Button/Button';
+import classNames from 'classnames';
 
 // Styles
 import './ProductItem.less';
 
 // UI
 import DateIcon from '../../../UI/icons/timePublicate.svg';
-import classNames from 'classnames';
 
 function ProductItem({
   ProductTitle,
@@ -20,6 +21,7 @@ function ProductItem({
   options,
   status,
   salePrice,
+  id,
   ...props
 }) {
   const [redBG, setRedBG] = React.useState(false);
@@ -33,6 +35,7 @@ function ProductItem({
     greenBG,
     standartBG,
   });
+
   function getSale() {
     if (salePrice) {
       return (
@@ -162,7 +165,21 @@ function ProductItem({
                     )}
                   </div>
                   <div className="product-button">
-                    <Button onClick={() => console.log()} content="Buy now" />
+                    <Button
+                      onClick={() => {
+                        props.onClick({
+                          ...props,
+                          ProductTitle,
+                          price,
+                          currency,
+                          options,
+                          status,
+                          salePrice,
+                          id,
+                        });
+                      }}
+                      content="Buy now"
+                    />
                   </div>
                 </div>
               </div>

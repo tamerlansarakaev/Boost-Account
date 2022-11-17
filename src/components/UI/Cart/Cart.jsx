@@ -1,5 +1,8 @@
 // Global
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { CART_PAGE } from '../../../reducers/types';
 
 // Components
 
@@ -7,14 +10,34 @@ import React from 'react';
 import CartIcon from '../../../UI/icons/basket.svg';
 
 // Styles
-import "./Cart.less"
+import './Cart.less';
 
-function Cart () {
+function Cart() {
+  const [status, setStatus] = React.useState(false);
+  const [version, setVersion] = React.useState('0.5');
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    if (status) {
+      dispatch({ ...state, type: CART_PAGE, cartPage: true });
+      setStatus(false);
+    }
+  }, [status]);
   return (
-    <div className='Cart'>
-      <img src={CartIcon} alt="Add to Cart" className='cart-icon'/>
-    </div>
-  )
+    <>
+      {version === '0.6' ? (
+        <NavLink to={'/cart'}>
+          <div className="Cart" onClick={() => setStatus(true)}>
+            <img src={CartIcon} alt="Add to Cart" className="cart-icon" />
+          </div>
+        </NavLink>
+      ) : (
+        <div className="Cart" onClick={() => setStatus(true)}>
+          <img src={CartIcon} alt="Add to Cart" className="cart-icon" />
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Cart
+export default Cart;
