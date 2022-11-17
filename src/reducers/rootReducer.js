@@ -19,7 +19,6 @@ const rootReducer = (state = initialStore, action) => {
       return {
         ...state,
         activeCategory: action.activeCategory,
-        status: action.status,
       };
     case UPDATE_DATA:
       return {

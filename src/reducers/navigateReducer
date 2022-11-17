@@ -1,0 +1,22 @@
+import { CURRENT_LINKS, GET_LINKS } from './types';
+const initialStore = {
+  currentLink: '',
+};
+const navigateReducer = (state = initialStore, action) => {
+  switch (action.type) {
+    case GET_LINKS:
+      return {
+        ...state,
+        navigateLinks: action.links,
+      };
+    case CURRENT_LINKS:
+      return {
+        ...state,
+        currentLink: action.currentLink,
+      };
+    default:
+      return state;
+  }
+};
+
+export default navigateReducer;

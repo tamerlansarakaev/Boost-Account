@@ -7,11 +7,10 @@ import { ReactSVG } from 'react-svg';
 // Components
 import Input from '../../UI/Input/Input';
 import {
-  DATA_LOADED,
   ERROR_CONFIRM,
   NOT_SELECT_RATE,
+  SET_MODAL_STATUS,
   SUCCESSFULLY_COMPLETED,
-  UPDATE_DATA,
 } from '../../../reducers/types';
 
 import {
@@ -33,7 +32,6 @@ const ReviewModal = () => {
   });
 
   const state = useSelector((state) => state.server);
-  const siteState = useSelector((state) => state.site);
   const rates = Array(5).fill('');
   const reviews = useSelector((state) => state.server.reviews);
   const dispatch = useDispatch();
@@ -64,35 +62,32 @@ const ReviewModal = () => {
           }),
         }
       )
-        .then(() => dispatch({ ...state, type: UPDATE_DATA, status: 'UPDATE' }))
+        .then(() => {
+          dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
+          document.body.style.overflowY = 'scroll';
+
+        })
         .catch((err) => console.log(err));
     }
   }
-
   React.useEffect(() => {
     if (clickButton) {
       if (
         review.nameInput &&
         review.reviewInput &&
         review.feedbackInput &&
-        review.finalResult
+        review.rate
       ) {
         postReview();
-        dispatch({
-          ...state,
-          type: DATA_LOADED,
-          modalStatus: !siteState.modalStatus,
-          reviews: state.reviews,
-        });
+
         dispatch({
           ...state,
           type: SUCCESSFULLY_COMPLETED,
           status: REVIEW_POSTED,
           statusMessage: true,
         });
-        document.body.style.overflowY = 'scroll';
       }
-      if (!review.finalResult) {
+      if (!review.rate) {
         dispatch({
           ...state,
           type: NOT_SELECT_RATE,
