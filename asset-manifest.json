@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/Boost-Account/static/js/main.cde1e80b.js",
+    "main.js": "/Boost-Account/static/js/main.7f525beb.js",
     "static/media/background.png": "/Boost-Account/static/media/background.ee2e9b247cd7f8213206.png",
     "static/media/logo-header.svg": "/Boost-Account/static/media/logo-header.981586ba4a7dbf55efba0b8446de708b.svg",
     "static/media/Trustpilot.svg": "/Boost-Account/static/media/Trustpilot.1c195dc9329c071affbec9e5084b9fac.svg",
@@ -25,18 +25,20 @@
     "static/media/Mounts.svg": "/Boost-Account/static/media/Mounts.adf3e681498ed8d28297.svg",
     "static/media/Gearing.svg": "/Boost-Account/static/media/Gearing.fef1cd2e2345702c4ceb.svg",
     "static/media/review star.svg": "/Boost-Account/static/media/review star.2741e25df891d0370349d8c06e7fb738.svg",
+    "static/media/deleteIcon.svg": "/Boost-Account/static/media/deleteIcon.5ca549327f96043f2c545c0ff9fa6f70.svg",
     "static/media/basket.svg": "/Boost-Account/static/media/basket.a8a3d33b105007f5afb529e79e34c5ac.svg",
     "static/media/ratingStar.svg": "/Boost-Account/static/media/ratingStar.a1e0a9e0787d610ef69179a0626e6157.svg",
     "index.html": "/Boost-Account/index.html",
     "static/media/FireIcon.svg": "/Boost-Account/static/media/FireIcon.96ff1cc70e845c261e3a.svg",
     "static/media/facebook.svg": "/Boost-Account/static/media/facebook.7b79ef6c9f5e5e4c3fe13f4fc1fccd78.svg",
+    "static/media/comeBack.svg": "/Boost-Account/static/media/comeBack.93c74df4f79838431f87d88ba6739c13.svg",
     "static/media/ShoppingBag.svg": "/Boost-Account/static/media/ShoppingBag.3435acbfd2cf5945784a.svg",
     "static/media/menu mobile.svg": "/Boost-Account/static/media/menu mobile.986fe34152a0793daa6b1c07db4e82c8.svg",
     "static/media/search.svg": "/Boost-Account/static/media/search.ae836c32673b8626b19ce0a8d7ee605f.svg",
     "static/media/timePublicate.svg": "/Boost-Account/static/media/timePublicate.f1721b1c04557b6b1af367b682c1a38a.svg",
-    "main.cde1e80b.js.map": "/Boost-Account/static/js/main.cde1e80b.js.map"
+    "main.7f525beb.js.map": "/Boost-Account/static/js/main.7f525beb.js.map"
   },
   "entrypoints": [
-    "static/js/main.cde1e80b.js"
+    "static/js/main.7f525beb.js"
   ]
 }
