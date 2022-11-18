@@ -4,6 +4,7 @@
 .products {
   margin-top: 52px;
   margin-bottom: 51px;
+
   .products-header {
     display: flex;
     margin-bottom: 34px;
@@ -28,5 +29,32 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 -15px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-list {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-list {
+      margin: 0;
+      width: 100%;
+    }
   }
 }
