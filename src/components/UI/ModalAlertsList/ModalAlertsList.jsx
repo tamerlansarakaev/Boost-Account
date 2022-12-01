@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
