@@ -47,7 +47,11 @@ const ModalList = () => {
           </Modal>
         );
       case ALL_REVIEWS:
-        return <AllReviews />;
+        return (
+          <Modal onClick={() => saveStatus()}>
+            <AllReviews />
+          </Modal>
+        );
       case LOADING_SITE:
         return (
           <Modal>

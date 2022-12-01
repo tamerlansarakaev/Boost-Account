@@ -15,7 +15,6 @@ import ReviewPost from '../ReviewPost/ReviewPost';
 
 function ReviewsList() {
   const reviews = useSelector((state) => state.server.reviews);
-
   return (
     <div className="reviews">
       <div className="reviews-container">
@@ -24,7 +23,7 @@ function ReviewsList() {
           <span>Only trusted reviews</span>
         </div>
         <div className="reviews-items">
-          {reviews &&
+          {reviews && reviews.length ? (
             reviews
               .filter((_, i) => i < 6)
               .map((reviews, i) => {
@@ -38,15 +37,16 @@ function ReviewsList() {
                     key={i}
                   />
                 );
-              })}
-          {reviews && !reviews.length ? (
-            <div className='empty-reviews-container'>
+              })
+          ) : (
+            <div className="empty-reviews-container">
               <div className="empty-reviews">
-                <p>There are no reviews. <br/>But you can leave your review!</p>
+                <p>
+                  There are no reviews. <br />
+                  But you can leave your review!
+                </p>
               </div>
             </div>
-          ) : (
-            ''
           )}
         </div>
         <ReviewPost />
