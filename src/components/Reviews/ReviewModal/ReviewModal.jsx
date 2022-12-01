@@ -49,16 +49,13 @@ const ReviewModal = () => {
       reviews;
 
     if (validateForm) {
-      postReview(review, date)
-        .then((res) => {
-          console.log(res);
-          dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
-          getReviews().then((res) => {
-            dispatch({ type: types.SET_REVIEWS, reviews: res });
-          });
-          document.body.style.overflowY = 'scroll';
-        })
-        .catch((err) => console.log(err));
+      postReview(review, date).then(() => {
+        dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
+        getReviews().then((res) => {
+          dispatch({ type: types.SET_REVIEWS, reviews: res });
+        });
+        document.body.style.overflowY = 'scroll';
+      });
     }
   }
   React.useEffect(() => {
