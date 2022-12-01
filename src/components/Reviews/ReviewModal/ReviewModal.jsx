@@ -65,7 +65,6 @@ const ReviewModal = () => {
         .then(() => {
           dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
           document.body.style.overflowY = 'scroll';
-
         })
         .catch((err) => console.log(err));
     }
