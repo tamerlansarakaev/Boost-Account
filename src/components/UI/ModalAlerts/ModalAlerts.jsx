@@ -1,6 +1,3 @@
-// Global
-import React from 'react';
-
 // Styles
 import './ModalAlerts.less';
 

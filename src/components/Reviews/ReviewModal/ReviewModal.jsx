@@ -7,6 +7,7 @@ import { ReactSVG } from 'react-svg';
 // Components
 import Input from '../../UI/Input/Input';
 import {
+  allTypes,
   ERROR_CONFIRM,
   NOT_SELECT_RATE,
   SET_MODAL_STATUS,
@@ -17,6 +18,7 @@ import {
   RATING_NOT_SELECTED,
   REVIEW_POSTED,
 } from '../../UI/ModalAlertsList/alertsTypes';
+import { getReviews, postReview } from '../../../services/API';
 
 // Styles
 import './ReviewModal.less';
@@ -36,49 +38,36 @@ const ReviewModal = () => {
   const reviews = useSelector((state) => state.server.reviews);
   const dispatch = useDispatch();
 
-  async function postReview() {
+  async function formHandle() {
     const date = new Date();
-
-    if (
+    const types = allTypes();
+    const validateForm =
       review.nameInput &&
       review.reviewInput &&
       review.feedbackInput &&
       review.rate &&
-      reviews
-    ) {
-      await fetch(
-        'https://my-json-server.typicode.com/tamerlansarakaev/database/reviews',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: review.nameInput,
-            titleReview: review.reviewInput,
-            description: review.feedbackInput,
-            rate: review.rate,
-            publictaionDate: date.toLocaleDateString(),
-          }),
-        }
-      )
-        .then(() => {
-          dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
-          document.body.style.overflowY = 'scroll';
-        })
-        .catch((err) => console.log(err));
+      reviews;
+
+    if (validateForm) {
+      postReview(review, date).then(() => {
+        dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
+        getReviews().then((res) => {
+          dispatch({ type: types.SET_REVIEWS, reviews: res });
+        });
+        document.body.style.overflowY = 'scroll';
+      });
     }
   }
   React.useEffect(() => {
     if (clickButton) {
-      if (
+      const validateForm =
         review.nameInput &&
         review.reviewInput &&
         review.feedbackInput &&
-        review.rate
-      ) {
-        postReview();
+        review.rate;
 
+      if (validateForm) {
+        formHandle();
         dispatch({
           ...state,
           type: SUCCESSFULLY_COMPLETED,
@@ -133,6 +122,7 @@ const ReviewModal = () => {
             <span className="modal-input-title">Your Name:</span>
             <Input
               type="text"
+              required={true}
               className={`modal-input${
                 !review.nameInput.length ? ' errorInput' : ''
               }`}
@@ -144,6 +134,7 @@ const ReviewModal = () => {
             <span className="modal-input-title">Your review topic:</span>
             <Input
               type="text"
+              required={true}
               className={`modal-input${
                 !review.reviewInput.length ? ' errorInput' : ''
               }`}
@@ -154,6 +145,7 @@ const ReviewModal = () => {
             <span className="modal-input-title">Your feedback:</span>
             <Input
               type="text"
+              required={true}
               className={`modal-input${
                 !review.feedbackInput.length ? ' errorInput' : ''
               }`}
