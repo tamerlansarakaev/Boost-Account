@@ -1,57 +1,50 @@
-import {
-  DATA_LOADED,
-  SET_CATEGORIES,
-  SET_LINKS,
-  SET_MENU,
-  SET_PRODUCTS,
-  SET_REGIONS,
-  SET_REVIEWS,
-  UPDATE_DATA,
-} from './types';
+import { allTypes } from './types';
 
 const initialStore = {
   statusError: false,
 };
 
+const types = allTypes();
+
 const rootReducer = (state = initialStore, action) => {
   switch (action.type) {
-    case DATA_LOADED:
+    case types.DATA_LOADED:
       return {
         ...state,
         activeCategory: action.activeCategory,
       };
-    case UPDATE_DATA:
+    case types.UPDATE_DATA:
       return {
         ...state,
         activeCategory: action.selectedCategory,
         status: action.status,
       };
-    case SET_PRODUCTS:
+    case types.SET_PRODUCTS:
       return {
         ...state,
         products: action.products,
       };
-    case SET_REGIONS:
+    case types.SET_REGIONS:
       return {
         ...state,
         region: action.region,
       };
-    case SET_LINKS:
+    case types.SET_LINKS:
       return {
         ...state,
         links: action.links,
       };
-    case SET_CATEGORIES:
+    case types.SET_CATEGORIES:
       return {
         ...state,
         categories: action.categories,
       };
-    case SET_MENU:
+    case types.SET_MENU:
       return {
         ...state,
         menu: action.menu,
       };
-    case SET_REVIEWS:
+    case types.SET_REVIEWS:
       return {
         ...state,
         reviews: action.reviews,
