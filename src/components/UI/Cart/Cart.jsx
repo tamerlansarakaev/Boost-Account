@@ -14,7 +14,7 @@ import './Cart.less';
 
 function Cart() {
   const [status, setStatus] = React.useState(false);
-  const [version] = React.useState('0.6');
+  const [version] = React.useState('0.5');
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -26,7 +26,7 @@ function Cart() {
   return (
     <>
       {version === '0.6' ? (
-        <NavLink to={'/cart'}>
+        <NavLink to={'/Boost-Account/cart'}>
           <div className="Cart" onClick={() => setStatus(true)}>
             <img src={CartIcon} alt="Add to Cart" className="cart-icon" />
           </div>

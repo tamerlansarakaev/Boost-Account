@@ -1,14 +1,13 @@
 // Global
 import React from 'react';
 import { ReactSVG } from 'react-svg';
-
+import { ICartItem } from '../CartList/CartList';
 // Inteface List
-import { ISiteState } from '../CartPage';
 
 // Styles
 import './CartItem.less';
 
-const CartItem: React.FC<ISiteState> = (props) => {
+const CartItem: React.FC<ICartItem> = ({ onDelete, id, ...props }) => {
   const [options] = React.useState(['Finish Storyline']);
   return (
     <div className="cart-product">
@@ -19,27 +18,32 @@ const CartItem: React.FC<ISiteState> = (props) => {
         <div className="info-block">
           <div className="info-header">
             <p className="info-title">Boost</p>
-            <p className="info-product-title">Heloo</p>
+            <p className="info-product-title">{props.ProductTitle}</p>
           </div>
           <div className="info-options">
             <p className="options-title">Options</p>
             {options &&
-              options.map((option) => {
+              options.map((option, i) => {
                 return (
-                  <div className="options-box">
+                  <div className="options-box" key={i}>
                     <span className="option-name">{option}</span>
-                    <span className="option-price">€ 7</span>
+                    <span className="option-price">€ {props.price}</span>
                   </div>
                 );
               })}
           </div>
         </div>
-        <div className="cart-product-delete">
+        <button
+          className="cart-product-delete"
+          onClick={() => {
+            onDelete(id);
+          }}
+        >
           <ReactSVG
             className="delete-icon"
             src={require('../../../UI/icons/deleteIcon.svg').default}
           />
-        </div>
+        </button>
       </div>
     </div>
   );

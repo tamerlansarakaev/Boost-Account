@@ -35,7 +35,8 @@ function ProductItem({
     greenBG,
     standartBG,
   });
-
+  const cartId = require('uniqid');
+  const deleteKey = cartId();
   function getSale() {
     if (salePrice) {
       return (
@@ -167,7 +168,7 @@ function ProductItem({
                   <div className="product-button">
                     <Button
                       onClick={() => {
-                        props.onClick({
+                        props.saveProduct({
                           ...props,
                           ProductTitle,
                           price,
@@ -175,7 +176,7 @@ function ProductItem({
                           options,
                           status,
                           salePrice,
-                          id,
+                          deleteKey,
                         });
                       }}
                       content="Buy now"
