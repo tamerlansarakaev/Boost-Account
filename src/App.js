@@ -11,12 +11,14 @@ import './App.less';
 import './components/GlobalStyles/GlobalStyles.less';
 
 function App() {
-  const [version] = React.useState('0.6');
+  const [version] = React.useState('0.5');
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        {version === '0.6' && <Route path="/cart" element={<CartPage />} />}
+        <Route path="/Boost-Account" element={<HomePage />} />
+        {version === '0.6' && (
+          <Route path="/Boost-Account/cart" element={<CartPage />} />
+        )}
         <Route path="*" element={<HomePage />} />
       </Routes>
     </BrowserRouter>

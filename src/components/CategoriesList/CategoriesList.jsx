@@ -5,7 +5,6 @@ import { DATA_LOADED } from '../../reducers/types';
 
 // Components
 import CategoryItem from '../CategoryItem/CategoryItem';
-import { LOADING_SITE } from '../UI/ModalList/modalTypes';
 
 // Styles
 import './CategoriesList.less';
