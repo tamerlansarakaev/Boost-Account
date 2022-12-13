@@ -23,6 +23,7 @@ const rootReducer = (state = initialStore, action) => {
       return {
         ...state,
         products: action.products,
+        cartProduct: action.cartProduct,
       };
     case types.SET_REGIONS:
       return {

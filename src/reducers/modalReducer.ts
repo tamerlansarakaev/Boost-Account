@@ -19,6 +19,7 @@ const modalReducer = (state = initialStore, action: Action) => {
   switch (action.type) {
     case types.NOTIFICATION_MODAL:
       return {
+        ...state,
         notificationStatus: action.notificationStatus,
       };
     case types.SUCCESSFULLY_COMPLETED:

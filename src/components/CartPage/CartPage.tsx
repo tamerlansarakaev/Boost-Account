@@ -5,42 +5,31 @@ import { NavLink } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 
 // Components
-import { CART_PAGE, GET_PRODUCT } from '../../reducers/types';
+import { CART_PAGE } from '../../reducers/types';
 import LogoSite from '../UI/Logo/Logo';
-import CartItem from './CartItem/CartItem';
+import CartList, { ICartItem } from './CartList/CartList';
 
 // Styles
 import './CartPage.less';
 
-interface ISiteStateObject {
-  length: JSX.Element[];
-  cartProduct: Array<[]>;
-  image: string;
-  site: object;
+interface ISiteState {
+  cartProduct: Array<ICartItem>;
+  modalType: string;
 }
 
-export interface ISiteState {
-  state?: object;
-  cartProduct?: ISiteStateObject;
-  image?: string;
-  site?: ISiteStateObject;
-}
-
-interface ICartPageProps {
+export interface ICartPageProps {
   state: object;
   modalReducer: {
     statusPage: boolean;
     cartPage: boolean;
     image: string;
   };
-  site: object;
+  site: ISiteState;
 }
 
-const CartPage: React.FC<ICartPageProps> = (product) => {
+const CartPage: React.FC<ICartPageProps> = () => {
   const [status, setStatus] = React.useState<boolean>(false);
   const stateModal = useSelector((state: ICartPageProps) => state.modalReducer);
-  const state = useSelector((state: ICartPageProps) => state);
-  const stateSite = useSelector((state: ISiteStateObject) => state.site);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -64,17 +53,13 @@ const CartPage: React.FC<ICartPageProps> = (product) => {
     }
   }, [status]);
 
-  React.useEffect(() => {
-    dispatch({ ...state, type: GET_PRODUCT });
-  }, [stateSite]);
-
   return (
     <div className={`cart-page`}>
       <div className="cart-page-line"></div>
       <div className="cart-page-container">
         <div className="cart-page-header">
           <div className="cart-page-back">
-            <NavLink to={'/'}>
+            <NavLink to={'/Boost-Account'}>
               <button className="come-back" onClick={() => statusPage()}>
                 <ReactSVG
                   className="come-back-icon"
@@ -86,7 +71,7 @@ const CartPage: React.FC<ICartPageProps> = (product) => {
           <LogoSite />
         </div>
         <div className="cart-page-main">
-          <CartItem image="https://sun9-81.userapi.com/impg/rUqG3z9ITfmGj8BfAi0CncxtGxP-VF4yStBpHQ/pYoeQ5qjYHI.jpg?size=1280x720&quality=96&sign=1c47877299921e0fe1a8cc688a6daae5&type=album" />
+          <CartList />
         </div>
       </div>
     </div>
