@@ -7,7 +7,7 @@ import LogoSite from '../Logo/Logo';
 import Button from '../Button/Button';
 import MenuBackground from './MenuBackground/MenuBackground';
 import Search from '../../Search/Search';
-import { DATA_LOADED } from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 
 // UI
 import MenuLogo from '../../../UI/icons/menu mobile.svg';
@@ -29,7 +29,7 @@ function Menu() {
     if (state) {
       dispatch({
         ...state,
-        type: DATA_LOADED,
+        type: allTypes.DATA_LOADED,
         activeCategory: selectCategory,
       });
     }

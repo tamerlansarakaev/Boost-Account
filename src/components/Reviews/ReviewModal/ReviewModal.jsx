@@ -6,13 +6,7 @@ import { ReactSVG } from 'react-svg';
 
 // Components
 import Input from '../../UI/Input/Input';
-import {
-  allTypes,
-  ERROR_CONFIRM,
-  NOT_SELECT_RATE,
-  SET_MODAL_STATUS,
-  SUCCESSFULLY_COMPLETED,
-} from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 
 import {
   RATING_NOT_SELECTED,
@@ -50,7 +44,7 @@ const ReviewModal = () => {
 
     if (validateForm) {
       postReview(review, date).then(() => {
-        dispatch({ ...state, type: SET_MODAL_STATUS, status: 'UPDATE' });
+        dispatch({ ...state, type: allTypes.SET_MODAL_STATUS, status: 'UPDATE' });
         getReviews().then((res) => {
           dispatch({ type: types.SET_REVIEWS, reviews: res });
         });
@@ -70,7 +64,7 @@ const ReviewModal = () => {
         formHandle();
         dispatch({
           ...state,
-          type: SUCCESSFULLY_COMPLETED,
+          type: allTypes.SUCCESSFULLY_COMPLETED,
           status: REVIEW_POSTED,
           statusMessage: true,
         });
@@ -78,14 +72,14 @@ const ReviewModal = () => {
       if (!review.rate) {
         dispatch({
           ...state,
-          type: NOT_SELECT_RATE,
+          type: allTypes.NOT_SELECT_RATE,
           status: RATING_NOT_SELECTED,
           statusMessage: true,
         });
         setTimeout(() => {
           dispatch({
             ...state,
-            type: NOT_SELECT_RATE,
+            type: allTypes.NOT_SELECT_RATE,
             status: RATING_NOT_SELECTED,
             statusMessage: false,
           });
@@ -100,7 +94,7 @@ const ReviewModal = () => {
         )
       ) {
         dispatch({
-          type: ERROR_CONFIRM,
+          type: allTypes.ERROR_CONFIRM,
           statusError: true,
           statusAlerts: RATING_NOT_SELECTED,
         });

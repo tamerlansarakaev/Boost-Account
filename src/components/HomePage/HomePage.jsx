@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
-import allTypes from '../../services/allTypes';
 import combineAPI from '../../services/combineAPI';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -15,7 +14,7 @@ import BackGround from '../../UI/background/background.png';
 
 // Styles
 import './HomePage.less';
-import { LOADING_SITE } from '../UI/ModalList/modalTypes';
+import allTypes from '../../reducers/types';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -25,8 +24,8 @@ function HomePage() {
   const state = useSelector((state) => state);
   async function setAllData() {
     const API = combineAPI();
-    const types = allTypes();
-    dispatch({ type: LOADING_SITE, modalType: LOADING_SITE });
+    const types = allTypes;
+    dispatch({ type: types.LOADING_SITE, modalType: types.LOADING_SITE });
     dispatch({
       type: types.SET_PRODUCTS,
       products: await API.getProducts(),
@@ -50,7 +49,7 @@ function HomePage() {
   }
 
   React.useEffect(() => {
-    const types = allTypes();
+    const types = allTypes;
     setAllData();
     if (statusUpdate) {
       setAllData();

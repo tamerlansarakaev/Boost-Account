@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { CART_PAGE } from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 
 // Components
 
@@ -19,7 +19,7 @@ function Cart() {
   const dispatch = useDispatch();
   React.useEffect(() => {
     if (status) {
-      dispatch({ ...state, type: CART_PAGE, cartPage: true });
+      dispatch({ ...state, type: allTypes.CART_PAGE, cartPage: true });
       setStatus(false);
     }
   }, [status]);

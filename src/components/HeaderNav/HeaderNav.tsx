@@ -1,15 +1,22 @@
-// Global
-import React from 'react';
 import { useSelector } from 'react-redux';
 import HeaderNavItem from '../HeaderNavItem/HeaderNavItem';
-
-// UI
 
 // Styles
 import './HeaderNav.less';
 
+interface ILinks {
+  server: {
+    links: Array<ILinksState>;
+  };
+}
+
+interface ILinksState {
+  name: string;
+  src: string;
+}
+
 const HeaderNav = () => {
-  const links = useSelector((state) => state.server.links);
+  const links = useSelector((state: ILinks) => state.server.links);
   return (
     <div className="Header__Nav">
       <div className="header-links">

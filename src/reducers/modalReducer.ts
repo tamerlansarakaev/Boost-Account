@@ -1,19 +1,19 @@
-import { allTypes } from './types';
+import allTypes from './types';
 
 const initialStore = {
   notificationStatus: false,
 };
 
 interface Action {
-  type: String;
+  type: string;
   notificationStatus: boolean;
-  status: String;
+  status: string;
   statusMessage: boolean;
   statusModal: boolean;
   cartPage: boolean;
 }
 
-const types = allTypes();
+const types = allTypes;
 
 const modalReducer = (state = initialStore, action: Action) => {
   switch (action.type) {
