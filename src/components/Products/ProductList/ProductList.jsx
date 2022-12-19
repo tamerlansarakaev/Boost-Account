@@ -32,7 +32,6 @@ function ProductList() {
     storage.clear();
     if (currentStorage && cartProduct.length) {
       const result = [...cartProduct, ...currentStorage];
-      console.log(currentStorage);
       return storage.setItem('cartProducts', JSON.stringify(result));
     }
 
