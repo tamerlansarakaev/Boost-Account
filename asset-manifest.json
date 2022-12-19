@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/Boost-Account/static/js/main.6349f3ae.js",
-    "static/media/background.png": "/Boost-Account/static/media/background.fff65f94cb99e9bdd64a.png",
+    "main.js": "/Boost-Account/static/js/main.1dbceb61.js",
+    "static/media/background.webp": "/Boost-Account/static/media/background.8c8e505edefb305cee9d.webp",
     "static/media/logo-header.svg": "/Boost-Account/static/media/logo-header.981586ba4a7dbf55efba0b8446de708b.svg",
     "static/media/Trustpilot.svg": "/Boost-Account/static/media/Trustpilot.1c195dc9329c071affbec9e5084b9fac.svg",
     "static/media/quession.svg": "/Boost-Account/static/media/quession.b3169e1429e721c74ec4.svg",
@@ -36,9 +36,9 @@
     "static/media/menu mobile.svg": "/Boost-Account/static/media/menu mobile.986fe34152a0793daa6b1c07db4e82c8.svg",
     "static/media/search.svg": "/Boost-Account/static/media/search.ae836c32673b8626b19ce0a8d7ee605f.svg",
     "static/media/timePublicate.svg": "/Boost-Account/static/media/timePublicate.f1721b1c04557b6b1af367b682c1a38a.svg",
-    "main.6349f3ae.js.map": "/Boost-Account/static/js/main.6349f3ae.js.map"
+    "main.1dbceb61.js.map": "/Boost-Account/static/js/main.1dbceb61.js.map"
   },
   "entrypoints": [
-    "static/js/main.6349f3ae.js"
+    "static/js/main.1dbceb61.js"
   ]
 }
