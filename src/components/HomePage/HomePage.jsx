@@ -10,7 +10,7 @@ import ModalAlertsList from '../UI/ModalAlertsList/ModalAlertsList';
 import ModalList from '../UI/ModalList/ModalList';
 
 // UI
-import BackGround from '../../UI/background/background.png';
+import BackGround from '../../UI/background/background.webp';
 
 // Styles
 import './HomePage.less';
