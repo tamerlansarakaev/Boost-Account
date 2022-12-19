@@ -1,7 +1,7 @@
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DATA_LOADED } from '../../reducers/types';
+import allTypes from '../../reducers/types';
 
 // Components
 import CategoryItem from '../CategoryItem/CategoryItem';
@@ -9,11 +9,22 @@ import CategoryItem from '../CategoryItem/CategoryItem';
 // Styles
 import './CategoriesList.less';
 
+interface ICategoriesList {
+  site: object;
+  server: {
+    categories: Array<string>;
+    activeCategory: string;
+    products: Array<Object>;
+  };
+}
+
 const CategoriesList = () => {
-  const categories = useSelector((state) => state.server.categories);
+  const categories = useSelector(
+    (state: ICategoriesList) => state.server.categories
+  );
   const [active, setActive] = React.useState('');
-  const state = useSelector((state) => state.site);
-  const stateServer = useSelector((state) => state.server);
+  const state = useSelector((state: ICategoriesList) => state.site);
+  const stateServer = useSelector((state: ICategoriesList) => state.server);
   const dispatch = useDispatch();
 
   function checkCategory() {
@@ -24,7 +35,11 @@ const CategoriesList = () => {
 
   React.useEffect(() => {
     if (stateServer.products) {
-      dispatch({ ...state, type: DATA_LOADED, activeCategory: active });
+      dispatch({
+        ...state,
+        type: allTypes.DATA_LOADED,
+        activeCategory: active,
+      });
     }
   }, [active]);
   React.useEffect(() => {
@@ -37,7 +52,7 @@ const CategoriesList = () => {
         categories.map((category, i) => {
           return (
             <CategoryItem
-              onClick={(name) => {
+              onClick={(name: string) => {
                 setActive(name);
               }}
               name={category}

@@ -13,7 +13,7 @@ import AdaptiveHeader from './AdaptveHeader/AdaptiveHeader';
 import './Header.less';
 
 const Header = () => {
-  const [value, setValue] = React.useState('');
+  const [valueSearch, setValueSearch] = React.useState<string>('');
   const [screenSize, setScreenSize] = React.useState({
     width: window.innerWidth,
   });
@@ -30,8 +30,9 @@ const Header = () => {
       window.removeEventListener('resize', setDimension);
     };
   }, [screenSize]);
-  const saveValue = (value) => {
-    setValue(value);
+  const saveValue = (value: string) => {
+    setValueSearch(value);
+    console.log(valueSearch);
   };
   return (
     <div className="Header">
@@ -41,7 +42,7 @@ const Header = () => {
           <HeaderNav />
           <Cart />
           <div className="Header__Search">
-            <Search onChange={(value) => saveValue(value)} />
+            <Search onChange={(value: string) => saveValue(value)} />
             <RegionList />
           </div>
         </div>

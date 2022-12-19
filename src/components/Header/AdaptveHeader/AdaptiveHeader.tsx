@@ -1,12 +1,8 @@
-import React from 'react';
-import RegionList from '../../RegionList/RegionList';
-
 // Components
 import Cart from '../../UI/Cart/Cart.jsx';
-import LogoSite from '../../UI/Logo/Logo';
-import Menu from '../../UI/Menu/Menu';
-
-// UI
+import LogoSite from '../../UI/Logo/Logo.jsx';
+import Menu from '../../UI/Menu/Menu.jsx';
+import RegionList from '../../RegionList/RegionList.jsx';
 
 // STyles
 import './AdaptiveHeader.less';

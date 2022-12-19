@@ -1,11 +1,11 @@
-import { GET_LINKS } from './types';
+import allTypes from './types';
 
 const initialStore = {
   navigateLinks: [],
 };
 
-interface IAction {
-  type: String;
+interface IActionNavigate {
+  type: string;
   links: Array<Object>;
 }
 
@@ -13,9 +13,12 @@ interface IState {
   navigateLinks: Array<Object>;
 }
 
-const navigateReducer = (state: IState = initialStore, action: IAction) => {
+const navigateReducer = (
+  state: IState = initialStore,
+  action: IActionNavigate
+) => {
   switch (action.type) {
-    case GET_LINKS:
+    case allTypes.GET_LINKS:
       return {
         ...state,
         navigateLinks: action.links,

@@ -6,7 +6,7 @@ import { ALL_REVIEWS, CREATE_REVIEW_MODAL, LOADING_SITE } from './modalTypes';
 import ReviewModal from '../../Reviews/ReviewModal/ReviewModal';
 import AllReviews from '../../Reviews/AllReviews/AllReviews';
 import LoadingSiteModal from '../../LoadingSiteModal/LoadingSiteModal';
-import { SET_MODAL_STATUS } from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 import Modal from '../Modal/Modal';
 
 const ModalList = () => {
@@ -20,16 +20,24 @@ const ModalList = () => {
       setStatus(!state.modalStatus);
       dispatch({
         ...state,
-        type: SET_MODAL_STATUS,
+        type: allTypes.SET_MODAL_STATUS,
         modalStatus: status,
       });
     } else {
       setStatus(false);
-      dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
+      dispatch({
+        ...state,
+        type: allTypes.SET_MODAL_STATUS,
+        modalStatus: status,
+      });
     }
   }
   React.useEffect(() => {
-    dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
+    dispatch({
+      ...state,
+      type: allTypes.SET_MODAL_STATUS,
+      modalStatus: status,
+    });
 
     if (status) {
       document.body.style.overflowY = 'hidden';

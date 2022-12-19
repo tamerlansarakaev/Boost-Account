@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 
 // Components
-import { CART_PAGE } from '../../reducers/types';
+import allTypes from '../../reducers/types';
 import LogoSite from '../UI/Logo/Logo';
 import CartList, { ICartItem } from './CartList/CartList';
 
@@ -41,7 +41,7 @@ const CartPage: React.FC<ICartPageProps> = () => {
   function statusPage() {
     setTimeout(() => {
       setStatus(false);
-      dispatch({ type: CART_PAGE, cartPage: false });
+      dispatch({ type: allTypes.CART_PAGE, cartPage: false });
     }, 1000);
   }
 

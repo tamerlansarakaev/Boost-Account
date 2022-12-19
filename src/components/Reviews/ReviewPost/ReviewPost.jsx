@@ -4,11 +4,7 @@ import React from 'react';
 
 // Components
 import Button from '../../UI/Button/Button';
-import {
-  GET_NEW_MODAL,
-  SET_MODAL_STATUS,
-  VIEW_REVIEWS,
-} from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 
 // Styles
 import './ReviewPost.less';
@@ -30,7 +26,7 @@ function ReviewPost() {
   function allReviews(reviews) {
     if (reviews && reviews.length > 6) {
       dispatch({
-        type: VIEW_REVIEWS,
+        type: allTypes.VIEW_REVIEWS,
         modalStatus: true,
         modalType: ALL_REVIEWS,
       });
@@ -42,21 +38,29 @@ function ReviewPost() {
       setStatus(true);
       dispatch({
         ...state,
-        type: SET_MODAL_STATUS,
+        type: allTypes.SET_MODAL_STATUS,
         modalType: CREATE_REVIEW_MODAL,
         modalStatus: status,
       });
     } else {
       setStatus(false);
-      dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
+      dispatch({
+        ...state,
+        type: allTypes.SET_MODAL_STATUS,
+        modalStatus: status,
+      });
     }
   }
 
   React.useEffect(() => {
-    dispatch({ ...state, type: SET_MODAL_STATUS, modalStatus: status });
     dispatch({
       ...state,
-      type: GET_NEW_MODAL,
+      type: allTypes.SET_MODAL_STATUS,
+      modalStatus: status,
+    });
+    dispatch({
+      ...state,
+      type: allTypes.GET_NEW_MODAL,
       modalType: CREATE_REVIEW_MODAL,
     });
   }, [status]);
