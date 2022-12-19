@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DATA_LOADED } from '../../../../reducers/types';
+import allTypes from '../../../../reducers/types';
 import MenuCategoryItem from '../MenuCategoryItem/MenuCategoryItem';
 
 // Styles
@@ -21,7 +21,11 @@ function MenuCategoryList(props) {
 
   React.useEffect(() => {
     if (state) {
-      dispatch({ ...state, type: DATA_LOADED, activeCategory: active });
+      dispatch({
+        ...state,
+        type: allTypes.DATA_LOADED,
+        activeCategory: active,
+      });
     }
   }, [active]);
 

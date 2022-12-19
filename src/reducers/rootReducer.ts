@@ -1,12 +1,26 @@
-import { allTypes } from './types';
+import allTypes from './types';
+
+interface IActionRootItems {
+  type: string;
+  activeCategory: string;
+  selectedCategory: string;
+  status: string;
+  products: Array<Object>;
+  cartProduct: Array<Object>;
+  region: string;
+  links: Array<string>;
+  categories: Array<string>;
+  reviews: Array<Object>;
+  menu: Object;
+}
 
 const initialStore = {
   statusError: false,
 };
 
-const types = allTypes();
+const types = allTypes;
 
-const rootReducer = (state = initialStore, action) => {
+const rootReducer = (state = initialStore, action: IActionRootItems) => {
   switch (action.type) {
     case types.DATA_LOADED:
       return {

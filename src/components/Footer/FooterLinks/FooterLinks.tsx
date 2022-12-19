@@ -8,7 +8,7 @@ import LinksMobile from './LinksMobile/LinksMobile';
 import './FooterLinks.less';
 
 function FooterLinks() {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
 
   const handleResize = () => {
     if (window.innerWidth < 720) {

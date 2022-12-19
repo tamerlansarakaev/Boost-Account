@@ -1,9 +1,12 @@
-import React from 'react';
-
 // Styles
 import './HeaderNavItem.less';
 
-function HeaderNavItem(props) {
+interface IHeaderNavItem {
+  name: string;
+  src: string;
+}
+
+function HeaderNavItem(props: IHeaderNavItem) {
   return <li className="title-nav">{props.name}</li>;
 }
 

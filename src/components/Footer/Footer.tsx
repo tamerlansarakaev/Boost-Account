@@ -1,15 +1,10 @@
-// Global
-import React from 'react';
-
 // Components
-
-// UI
-
-// Styles
-import './Footer.less';
 import FooterLinks from './FooterLinks/FooterLinks';
 import FooterLogo from './FooterLogo/FooterLogo';
 import FooterMessengers from './FooterMessengers/FooterMessengers';
+
+// Styles
+import './Footer.less';
 
 function Footer() {
   return (

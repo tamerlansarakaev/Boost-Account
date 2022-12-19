@@ -38,6 +38,9 @@ p {
     position: relative;
 
     .product-background-image-container {
+      position: relative;
+      height: 100%;
+      bottom: 100%;
       .product-background-image {
         width: 100%;
         object-fit: cover;
@@ -233,15 +236,5 @@ p {
 
   .standartBG {
     background: #5b5b5b;
-  }
-}
-
-.product:hover {
-  .product-background-image-container::after {
-    background: linear-gradient(
-      17.36deg,
-      #280a0a 36.96%,
-      rgba(66, 20, 20, 0) 84.63%
-    );
   }
 }

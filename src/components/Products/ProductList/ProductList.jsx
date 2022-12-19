@@ -78,4 +78,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default React.memo(ProductList);

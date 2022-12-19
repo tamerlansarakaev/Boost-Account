@@ -1,7 +1,7 @@
 // Global
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { REQUEST_PROCESSED } from '../../../reducers/types';
+import allTypes from '../../../reducers/types';
 
 // Components
 import ModalAlerts from '../ModalAlerts/ModalAlerts';
@@ -12,7 +12,7 @@ const ModalAlertsList = () => {
   const dispatch = useDispatch();
   function hiddenModal() {
     setTimeout(() => {
-      return dispatch({ type: REQUEST_PROCESSED });
+      return dispatch({ type: allTypes.REQUEST_PROCESSED });
     }, 800);
   }
   function getModalAlerts(type) {

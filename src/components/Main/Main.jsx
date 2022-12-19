@@ -1,16 +1,15 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
 import Previuos from '../Previuos/Previuos';
+import { useSelector } from 'react-redux';
 
 // Components
 import CategoriesList from '../../components/CategoriesList/CategoriesList';
+import ProductList from '../Products/ProductList/ProductList';
+import ReviewsList from '../Reviews/ReviewsList/ReviewsList';
 
 // Styles
 import './Main.less';
-import ProductList from '../Products/ProductList/ProductList';
-import { useSelector } from 'react-redux';
-import ReviewsList from '../Reviews/ReviewsList/ReviewsList';
 
 const Main = () => {
   const [category, setCategory] = React.useState('');

@@ -1,13 +1,28 @@
 import { LOADING_SITE } from '../components/UI/ModalList/modalTypes';
-import { allTypes } from './types';
+import allTypes from './types';
+
+interface IActionSiteItems {
+  type: string;
+  modalStatus: Boolean;
+  modalType: string;
+  statusError: Boolean;
+  statusAlerts: string;
+  cartProduct: Array<Object>;
+}
+
+interface IReducerSiteState {
+  statusError: Boolean;
+}
 
 const initialStore = {
   statusError: false,
 };
+const types = allTypes;
 
-const types = allTypes();
-
-const siteReducer = (state = initialStore, action) => {
+const siteReducer = (
+  state: IReducerSiteState = initialStore,
+  action: IActionSiteItems
+) => {
   switch (action.type) {
     case types.SET_MODAL_STATUS:
       return {

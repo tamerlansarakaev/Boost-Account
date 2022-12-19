@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 interface INavigateRedcuer {
-  links: Array<String>;
+  links: Array<string>;
 }
 
 interface INavigateItem {
