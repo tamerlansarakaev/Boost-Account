@@ -1,4 +1,4 @@
-# Используемый стек
+# Stack used in the project:
 
 1. Html, Less, Javascript,
 2. React,
