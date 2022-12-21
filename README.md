@@ -1,4 +1,4 @@
-# Stack used in the project:
+# Project Stack:
 
 1. Html, Less, Javascript,
 2. React,
