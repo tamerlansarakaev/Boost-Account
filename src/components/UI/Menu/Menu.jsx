@@ -26,7 +26,7 @@ function Menu() {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (state) {
+    if (selectCategory) {
       dispatch({
         ...state,
         type: allTypes.DATA_LOADED,

@@ -28,7 +28,7 @@ const CategoriesList = () => {
   const dispatch = useDispatch();
 
   function checkCategory() {
-    if (state && stateServer && stateServer.products) {
+    if (state && stateServer.activeCategory && stateServer.products) {
       setActive(stateServer.activeCategory);
     }
   }

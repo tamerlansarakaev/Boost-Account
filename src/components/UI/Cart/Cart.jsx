@@ -1,8 +1,6 @@
 // Global
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import allTypes from '../../../reducers/types';
 
 // Components
 
@@ -14,12 +12,9 @@ import './Cart.less';
 
 function Cart() {
   const [status, setStatus] = React.useState(false);
-  const [version] = React.useState('0.5');
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const [version] = React.useState('0.6');
   React.useEffect(() => {
     if (status) {
-      dispatch({ ...state, type: allTypes.CART_PAGE, cartPage: true });
       setStatus(false);
     }
   }, [status]);

@@ -5,6 +5,8 @@ import CartItem from '../CartItem/CartItem';
 
 // Styles
 import './CartList.less';
+import { useDispatch, useSelector } from 'react-redux';
+import allTypes from '../../../reducers/types';
 
 export interface ICartItem {
   id: number;
@@ -14,31 +16,52 @@ export interface ICartItem {
   currency: string;
   options: Array<string>;
   onDelete: (state: any) => void;
+  deleteKey: string;
+}
+
+interface ICartList {
+  site: {
+    cartProduct: ICartItem[];
+  };
 }
 
 function CartList() {
   const [cartProducts, setCartProducts] = React.useState<Array<ICartItem>>();
-  const activeCartProducts = localStorage.getItem('cartProducts');
+  const stateCartProducts = useSelector(
+    (state: ICartList) => state.site.cartProduct
+  );
+  const dispatch = useDispatch();
+  const [deleteKey, setDeleteKey] = React.useState('');
 
-  function getStorageProduct(): ICartItem[] | undefined {
-    if (!activeCartProducts) return;
-    const storageProducts = JSON.parse(activeCartProducts);
-    return storageProducts;
+  function deleteCartProduct(key: string) {
+    const resultCartProducts = stateCartProducts.filter((cartProduct) => {
+      return cartProduct.deleteKey !== key;
+    });
+    dispatch({ type: allTypes.CART_PRODUCT, cartProduct: resultCartProducts });
+    setDeleteKey('');
   }
+
   React.useEffect(() => {
-    if (activeCartProducts?.length) {
-      setCartProducts(getStorageProduct());
+    if (deleteKey) {
+      deleteCartProduct(deleteKey);
     }
-  }, [activeCartProducts] || [cartProducts]);
+  }, [deleteKey]);
+
+  React.useEffect(() => {
+    if (stateCartProducts) {
+      setCartProducts(stateCartProducts);
+    }
+  }, [stateCartProducts]);
+
   return (
     <div className="cart-list">
       {cartProducts ? (
-        cartProducts.map((product, i) => {
+        cartProducts.map((product: ICartItem, i) => {
           return (
             <CartItem
               {...product}
               key={i}
-              onDelete={(state) => console.log(state)}
+              onDelete={() => setDeleteKey(product.deleteKey)}
             />
           );
         })

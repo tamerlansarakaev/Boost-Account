@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 
 // Components
-import allTypes from '../../reducers/types';
 import LogoSite from '../UI/Logo/Logo';
 import CartList, { ICartItem } from './CartList/CartList';
 
@@ -30,7 +29,6 @@ export interface ICartPageProps {
 const CartPage: React.FC<ICartPageProps> = () => {
   const [status, setStatus] = React.useState<boolean>(false);
   const stateModal = useSelector((state: ICartPageProps) => state.modalReducer);
-  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (stateModal.cartPage) {
@@ -41,7 +39,6 @@ const CartPage: React.FC<ICartPageProps> = () => {
   function statusPage() {
     setTimeout(() => {
       setStatus(false);
-      dispatch({ type: allTypes.CART_PAGE, cartPage: false });
     }, 1000);
   }
 

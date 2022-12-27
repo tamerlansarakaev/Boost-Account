@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Project Stack:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Html, Less, Javascript,
+2. React,
+3. React-Router,
+4. Typescript,
+5. Redux
 
 ## Available Scripts
 

@@ -34,7 +34,7 @@ const ReviewModal = () => {
 
   async function formHandle() {
     const date = new Date();
-    const types = allTypes();
+    const types = allTypes;
     const validateForm =
       review.nameInput &&
       review.reviewInput &&
@@ -44,7 +44,11 @@ const ReviewModal = () => {
 
     if (validateForm) {
       postReview(review, date).then(() => {
-        dispatch({ ...state, type: allTypes.SET_MODAL_STATUS, status: 'UPDATE' });
+        dispatch({
+          ...state,
+          type: allTypes.SET_MODAL_STATUS,
+          status: 'UPDATE',
+        });
         getReviews().then((res) => {
           dispatch({ type: types.SET_REVIEWS, reviews: res });
         });
