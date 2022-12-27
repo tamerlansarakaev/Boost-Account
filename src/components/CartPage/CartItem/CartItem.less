@@ -1,8 +1,21 @@
+@keyframes smoothAppearance {
+  0% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 .cart-product {
   display: flex;
   max-width: 730px;
   border-radius: 10px;
   background: #1b1919;
+  transition: all 0.5s;
+  animation-name: smoothAppearance;
+  animation-duration: .5s;
 
   &-background {
     user-select: none;
