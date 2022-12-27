@@ -10,7 +10,7 @@ import ModalAlertsList from '../UI/ModalAlertsList/ModalAlertsList';
 import ModalList from '../UI/ModalList/ModalList';
 
 // UI
-import BackGround from '../../UI/background/background.webp';
+import BackGround from '../../UI/background/background.png';
 
 // Styles
 import './HomePage.less';
@@ -50,7 +50,6 @@ function HomePage() {
 
   React.useEffect(() => {
     const types = allTypes;
-    setAllData();
     if (statusUpdate) {
       setAllData();
       dispatch({
@@ -58,8 +57,13 @@ function HomePage() {
         type: types.DATA_LOADED,
         status: 'All data loaded this site!',
       });
+      return;
     }
+
+    if (state.server.products) return;
+    setAllData();
   }, [statusUpdate]);
+
   return (
     <div className="home-page">
       <img className="background" src={BackGround} alt="background" />

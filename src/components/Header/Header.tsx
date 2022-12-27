@@ -25,7 +25,6 @@ const Header = () => {
 
   React.useEffect(() => {
     window.addEventListener('resize', setDimension);
-
     return () => {
       window.removeEventListener('resize', setDimension);
     };

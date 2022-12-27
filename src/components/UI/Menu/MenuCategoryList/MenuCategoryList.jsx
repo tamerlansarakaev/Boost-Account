@@ -14,7 +14,7 @@ function MenuCategoryList(props) {
   const dispatch = useDispatch();
 
   function checkCategory() {
-    if (state) {
+    if (categories) {
       setActive(state.activeCategory);
     }
   }
