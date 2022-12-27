@@ -9,6 +9,15 @@ import './CartItem.less';
 
 const CartItem: React.FC<ICartItem> = ({ onDelete, id, ...props }) => {
   const [options] = React.useState(['Finish Storyline']);
+  function findFinalCurrency(fiat: string) {
+    if (fiat.toLowerCase() === 'EUR'.toLowerCase()) {
+      return '€';
+    } else if (fiat.toLowerCase() === 'USD'.toLowerCase()) {
+      return '$';
+    } else {
+      return '';
+    }
+  }
   return (
     <div className="cart-product">
       <div className="cart-product-background">
@@ -27,7 +36,10 @@ const CartItem: React.FC<ICartItem> = ({ onDelete, id, ...props }) => {
                 return (
                   <div className="options-box" key={i}>
                     <span className="option-name">{option}</span>
-                    <span className="option-price">€ {props.price}</span>
+                    <span className="option-price">
+                      {findFinalCurrency(props.currency)}{' '}
+                      {props.salePrice || props.price}
+                    </span>
                   </div>
                 );
               })}
