@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // Global
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // Components
 import ProductItem from '../ProductItem/ProductItem';
@@ -11,10 +11,12 @@ import './ProductList.less';
 
 // UI
 import IconMost from '../../../UI/icons/most.svg';
+import allTypes from '../../../reducers/types';
 
 function ProductList() {
   const products = useSelector((state) => state.server.products) || [];
   const stateServer = useSelector((state) => state.server);
+  const cartProducts = useSelector((state) => state.site.cartProduct);
   const sortArray = products.sort((a, b) => {
     if (a.typeProduct === stateServer.activeCategory) {
       return -1;
@@ -24,19 +26,20 @@ function ProductList() {
       return 0;
     }
   });
+  const dispatch = useDispatch();
 
   const [cartProduct, setCartProduct] = React.useState([]);
+  async function activeCartProducts() {
+    dispatch({ type: allTypes.CART_PRODUCT, cartProduct });
+  }
   React.useEffect(() => {
-    const storage = localStorage;
-    const currentStorage = JSON.parse(localStorage.getItem('cartProducts'));
-    storage.clear();
-    if (currentStorage && cartProduct.length) {
-      const result = [...cartProduct, ...currentStorage];
-      return storage.setItem('cartProducts', JSON.stringify(result));
+    if (cartProduct && cartProduct.length) {
+      activeCartProducts();
+      return;
     }
 
-    if (cartProduct.length) {
-      return storage.setItem('cartProducts', JSON.stringify(cartProduct));
+    if (cartProducts && cartProducts.length) {
+      setCartProduct(cartProducts);
     }
   }, [cartProduct]);
 
@@ -66,7 +69,9 @@ function ProductList() {
               id={products.id}
               options={products.options}
               saveProduct={(product) => {
-                setCartProduct([...cartProduct, product]);
+                setCartProduct((cartItems) => {
+                  return [...cartItems, product];
+                });
               }}
               key={products.id}
             />
