@@ -1,9 +1,11 @@
 @keyframes smoothAppearance {
   0% {
-    transform: translateY(-50px);
+    transform: translateY(-50%);
+    opacity: 0;
   }
 
   100% {
+    opacity: 1;
     transform: translateY(0%);
   }
 }
@@ -12,10 +14,18 @@
   display: flex;
   max-width: 730px;
   border-radius: 10px;
-  background: #1b1919;
-  transition: all 0.5s;
+  transition: all 1s;
   animation-name: smoothAppearance;
-  animation-duration: .5s;
+  animation-duration: 1s;
+
+  z-index: -2;
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
 
   &-background {
     user-select: none;
@@ -32,9 +42,10 @@
 
     img {
       width: 100%;
-      border-radius: 14px;
+      border-radius: inherit;
       object-fit: cover;
       height: 100%;
+      background-size: cover;
     }
   }
 
@@ -64,6 +75,9 @@
     width: 100%;
     box-sizing: border-box;
     padding: 16px 10px 24px 33px;
+    margin-left: -10px;
+    border-radius: 10px;
+    background: #1b1919;
 
     .info-title {
       font-family: 'Inter';
@@ -96,6 +110,7 @@
         align-items: center;
         justify-content: center;
       }
+
       path {
         fill: #f1433a;
       }
@@ -108,6 +123,7 @@
     .delete-icon {
       z-index: 2;
     }
+
     path {
       fill: #ff362b;
     }
@@ -131,14 +147,25 @@
     margin-bottom: 12px;
   }
 
+  .info-options {
+    margin-bottom: 18px;
+  }
+
+  .options-other {
+    color: #5a5a5a;
+    font-size: 14px;
+  }
+
   .options-box {
     display: flex;
     align-items: center;
     max-width: 246px;
     border-radius: 8px;
     padding: 8px 27px;
+    gap: 5px;
     background: linear-gradient(90deg, #e5453d -14.78%, #ff7a2e 451.57%);
     box-sizing: border-box;
+
     .option-name {
       font-family: 'Inter';
       font-weight: 700;
@@ -147,6 +174,7 @@
       letter-spacing: -0.025em;
       color: #ffffff;
     }
+
     .option-price {
       margin-left: auto;
       font-family: 'Inter';
@@ -159,8 +187,65 @@
       color: #ffffff;
     }
   }
+
+  .info-price {
+    h4 {
+      font-family: 'Inter';
+      margin: 0;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 127.2%;
+      letter-spacing: -0.025em;
+      color: #5a5a5a;
+    }
+
+    p {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 30px;
+      line-height: 135.7%;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+  }
 }
 
 .cart-product:not(:last-child) {
   margin-bottom: 15px;
+}
+
+@media screen and (max-width: 550px) {
+  .cart-product {
+    position: relative;
+    min-height: 450px;
+    border-radius: 21px;
+    .info {
+      flex-direction: column;
+      padding: 0 16px;
+      margin-top: auto;
+      justify-content: start;
+      background: none;
+      margin-left: 0;
+      margin-bottom: 15px;
+      z-index: 3;
+    }
+
+    .info-product-title {
+      max-width: 205px;
+    }
+
+    &-background {
+      max-width: none;
+      height: 100%;
+      position: absolute;
+    }
+
+    &-delete {
+      position: absolute;
+      bottom: 16px;
+      right: 11px;
+    }
+  }
 }

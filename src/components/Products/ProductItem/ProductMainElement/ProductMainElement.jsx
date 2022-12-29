@@ -5,11 +5,11 @@ import './ProductMainElement.less';
 
 const ProductMainElement = (props) => {
   return (
-    <ul className="options">
+    <ul className="Product-Main-Element-options">
       {props.advantage &&
         props.advantage.map((advantage, i) => {
           return (
-            <li className="options-title" key={i}>
+            <li className="Product-Main-Element-options-title" key={i}>
               {advantage}
             </li>
           );
