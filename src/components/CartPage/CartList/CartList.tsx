@@ -17,6 +17,7 @@ export interface ICartItem {
   options: Array<string>;
   onDelete: (state: any) => void;
   deleteKey: string;
+  salePrice: number;
 }
 
 interface ICartList {
@@ -55,7 +56,7 @@ function CartList() {
 
   return (
     <div className="cart-list">
-      {cartProducts ? (
+      {cartProducts && cartProducts.length ? (
         cartProducts.map((product: ICartItem, i) => {
           return (
             <CartItem

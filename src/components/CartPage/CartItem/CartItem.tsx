@@ -7,8 +7,18 @@ import { ICartItem } from '../CartList/CartList';
 // Styles
 import './CartItem.less';
 
-const CartItem: React.FC<ICartItem> = ({ onDelete, id, ...props }) => {
-  const [options] = React.useState(['Finish Storyline']);
+const CartItem: React.FC<ICartItem> = ({ onDelete, options, id, ...props }) => {
+  const conditionOptions = options.length > 2;
+  function findFinalCurrency(fiat: string) {
+    if (fiat.toLowerCase() === 'EUR'.toLowerCase()) {
+      return '€';
+    } else if (fiat.toLowerCase() === 'USD'.toLowerCase()) {
+      return '$';
+    } else {
+      return '';
+    }
+  }
+
   return (
     <div className="cart-product">
       <div className="cart-product-background">
@@ -22,15 +32,31 @@ const CartItem: React.FC<ICartItem> = ({ onDelete, id, ...props }) => {
           </div>
           <div className="info-options">
             <p className="options-title">Options</p>
-            {options &&
-              options.map((option, i) => {
-                return (
-                  <div className="options-box" key={i}>
-                    <span className="option-name">{option}</span>
-                    <span className="option-price">€ {props.price}</span>
-                  </div>
-                );
-              })}
+            <div className="options">
+              {options &&
+                options
+                  .filter((_, i) => i < 2)
+                  .map((option, i) => {
+                    return (
+                      <div className="options-box" key={i}>
+                        <span className="option-name">{option}</span>
+                        <span className="option-price">Free</span>
+                      </div>
+                    );
+                  })}
+            </div>
+            {options && conditionOptions ? (
+              <p className="options-other">Other options</p>
+            ) : (
+              ''
+            )}
+          </div>
+          <div className="info-price">
+            <h4>Total</h4>
+            <p>
+              {findFinalCurrency(props.currency)}{' '}
+              {props.salePrice || props.price}
+            </p>
           </div>
         </div>
         <button
