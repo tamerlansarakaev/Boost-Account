@@ -1,6 +1,6 @@
 # Project Stack:
 
-1. Html, Less, Javascript,
+1. Html, CSS ( Less ), Javascript,
 2. React,
 3. React-Router,
 4. Typescript,
