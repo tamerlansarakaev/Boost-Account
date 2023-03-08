@@ -8,13 +8,13 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import ModalAlertsList from '../UI/ModalAlertsList/ModalAlertsList';
 import ModalList from '../UI/ModalList/ModalList';
-
+import allTypes from '../../reducers/types';
+import SelectedProducts from '../Products/SelectedProductsModal/SelectedProductsModal';
 // UI
 import BackGround from '../../UI/background/background.png';
 
 // Styles
 import './HomePage.less';
-import allTypes from '../../reducers/types';
 
 function HomePage() {
   const dispatch = useDispatch();
@@ -22,39 +22,46 @@ function HomePage() {
   const statusUpdate = useSelector((state) => state.server.status);
   const stateModal = useSelector((state) => state.modalReducer);
   const state = useSelector((state) => state);
+
   async function setAllData() {
     const API = combineAPI();
-    const types = allTypes;
-    dispatch({ type: types.LOADING_SITE, modalType: types.LOADING_SITE });
+    dispatch({ type: allTypes.LOADING_SITE, modalType: allTypes.LOADING_SITE });
+
     dispatch({
-      type: types.SET_PRODUCTS,
+      type: allTypes.SET_PRODUCTS,
       products: await API.getProducts(),
     });
+
     dispatch({
-      type: types.SET_REGIONS,
+      type: allTypes.SET_REGIONS,
       region: await API.getRegions(),
     });
-    dispatch({ type: types.SET_LINKS, links: await API.getLinks() });
+
+    dispatch({ type: allTypes.SET_LINKS, links: await API.getLinks() });
+
     dispatch({
-      type: types.SET_CATEGORIES,
+      type: allTypes.SET_CATEGORIES,
       categories: await API.getCategories(),
     });
-    dispatch({ type: types.SET_MENU, menu: await API.getMenu() });
+
+    dispatch({ type: allTypes.SET_MENU, menu: await API.getMenu() });
+
     dispatch({
-      type: types.SET_REVIEWS,
+      type: allTypes.SET_REVIEWS,
       reviews: await API.getReviews(),
     });
-    dispatch({ type: types.SET_MODAL_STATUS, modalStatus: false });
+
+    dispatch({ type: allTypes.SET_MODAL_STATUS, modalStatus: false });
+
     document.body.style.overflowY = 'scroll';
   }
 
   React.useEffect(() => {
-    const types = allTypes;
     if (statusUpdate) {
       setAllData();
       dispatch({
         ...state,
-        type: types.DATA_LOADED,
+        type: allTypes.DATA_LOADED,
         status: 'All data loaded this site!',
       });
       return;
@@ -79,6 +86,7 @@ function HomePage() {
       <div className="footer-background">
         <Footer />
       </div>
+      <SelectedProducts />
     </div>
   );
 }

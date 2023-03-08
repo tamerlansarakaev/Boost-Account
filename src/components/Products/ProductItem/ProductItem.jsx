@@ -167,6 +167,7 @@ function ProductItem({
                   </div>
                   <div className="product-button">
                     <Button
+                      disabled={true}
                       onClick={() => {
                         props.saveProduct({
                           ...props,

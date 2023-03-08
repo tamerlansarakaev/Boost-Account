@@ -1,8 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
+import allTypes from '../../reducers/types';
 
 // Components
 import LogoSite from '../UI/Logo/Logo';
@@ -27,28 +27,11 @@ export interface ICartPageProps {
 }
 
 const CartPage: React.FC<ICartPageProps> = () => {
-  const [status, setStatus] = React.useState<boolean>(false);
-  const stateModal = useSelector((state: ICartPageProps) => state.modalReducer);
-
+  const dispatch = useDispatch();
   React.useEffect(() => {
-    if (stateModal.cartPage) {
-      setStatus(stateModal.cartPage);
-    }
-  }, [stateModal]);
-
-  function statusPage() {
-    setTimeout(() => {
-      setStatus(false);
-    }, 1000);
-  }
-
-  React.useEffect(() => {
-    if (status) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'auto';
-    }
-  }, [status]);
+    dispatch({ type: allTypes.SELECT_MODAL, modals: [] });
+    return;
+  }, []);
 
   return (
     <div className={`cart-page`}>
@@ -57,7 +40,7 @@ const CartPage: React.FC<ICartPageProps> = () => {
         <div className="cart-page-header">
           <div className="cart-page-back">
             <NavLink to={'/Boost-Account'}>
-              <button className="come-back" onClick={() => statusPage()}>
+              <button className="come-back">
                 <ReactSVG
                   className="come-back-icon"
                   src={require('../../UI/icons/comeBack.svg').default}
