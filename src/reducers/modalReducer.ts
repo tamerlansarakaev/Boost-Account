@@ -1,7 +1,13 @@
 import allTypes from './types';
 
-const initialStore = {
+const initialStore: Action = {
   notificationStatus: false,
+  type: '',
+  status: '',
+  statusMessage: false,
+  statusModal: false,
+  cartPage: false,
+  modal: [],
 };
 
 interface Action {
@@ -11,6 +17,7 @@ interface Action {
   statusMessage: boolean;
   statusModal: boolean;
   cartPage: boolean;
+  modal: Array<object>;
 }
 
 const types = allTypes;
@@ -45,6 +52,12 @@ const modalReducer = (state = initialStore, action: Action) => {
       return {
         ...state,
         cartPage: action.cartPage,
+      };
+
+    case types.SELECT_MODAL:
+      return {
+        ...state,
+        modal: action.modal,
       };
     default:
       return state;

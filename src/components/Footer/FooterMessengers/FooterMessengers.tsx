@@ -29,7 +29,7 @@ function FooterMessengers() {
             src={require('../../../UI/icons/messenger/telegram.svg').default}
           />
         </div>
-        <span className="footer-mail">admin@nice-boost.com</span>
+        <span className="footer-mail">timasarakaev@gmail.com</span>
       </div>
     </div>
   );

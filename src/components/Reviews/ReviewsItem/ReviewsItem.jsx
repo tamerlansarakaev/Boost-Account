@@ -27,7 +27,7 @@ function ReviewsItem({
         </div>
         <div className="review-item-main">
           <span className="review-title">{title}</span>
-          <p className="review-decription">{description}</p>
+          <p className="review-description">{description}</p>
         </div>
         <div className="review-footer">
           <span className="review-author">{authorName}</span>

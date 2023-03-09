@@ -25,16 +25,28 @@
   &-main {
     display: flex;
     flex-direction: column;
+    font-family: 'Inter';
+    overflow: hidden;
+    white-space: pre-wrap;
+    width: 100%;
   }
 
-  .review-decription {
-    max-width: 280px;
-    word-wrap: break-word;
+  .review-description {
+    overflow-wrap: break-word;
+
     font-family: 'Inter';
     font-weight: 400;
     font-size: 14px;
     color: #fff;
     margin-bottom: 9px;
+  }
+
+  .review-title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #fff;
+    white-space: pre-wrap;
+    margin-bottom: 6px;
   }
 
   .review-date-publication {
@@ -53,14 +65,6 @@
 
   .rate-icon div {
     display: flex;
-  }
-
-  .review-title {
-    font-family: 'Inter';
-    font-weight: 700;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 6px;
   }
 
   .review-author {
