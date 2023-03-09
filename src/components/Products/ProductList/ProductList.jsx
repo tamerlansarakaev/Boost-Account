@@ -17,6 +17,7 @@ function ProductList() {
   const products = useSelector((state) => state.server.products) || [];
   const stateServer = useSelector((state) => state.server);
   const cartProducts = useSelector((state) => state.site.cartProduct);
+  const selectModal = useSelector((state) => state.modalReducer.modal);
   const sortArray = products.sort((a, b) => {
     if (a.typeProduct === stateServer.activeCategory) {
       return -1;
@@ -32,6 +33,20 @@ function ProductList() {
   async function activeCartProducts() {
     dispatch({ type: allTypes.CART_PRODUCT, cartProduct });
   }
+
+  function callSelectModal() {
+    dispatch({
+      type: allTypes.SELECT_MODAL,
+      modal: [
+        ...(selectModal || ''),
+        {
+          title: 'PRODUCT ADDED TO CART',
+          color: 'rgb(151, 255, 69)',
+        },
+      ],
+    });
+  }
+
   React.useEffect(() => {
     if (cartProduct && cartProduct.length) {
       activeCartProducts();
@@ -72,6 +87,7 @@ function ProductList() {
                 setCartProduct((cartItems) => {
                   return [...cartItems, product];
                 });
+                callSelectModal();
               }}
               key={products.id}
             />

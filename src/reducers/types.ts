@@ -23,6 +23,7 @@ const allTypes = {
   GET_PRODUCT: 'GET_PRODUCT',
   CART_PRODUCT: 'CART_PRODUCT',
   LOADING_SITE: 'LOADING_SITE',
+  SELECT_MODAL: 'SELECT_MODAL',
 };
 
 export default allTypes;
